@@ -13,10 +13,10 @@ async function createConfig() {
   favicon: 'img/favicon.ico',
 
   url: 'https://fahmidza.github.io',
-  baseUrl: '/myportfolio/',
+  baseUrl: '/portfolio/',
 
   organizationName: 'fahmidza',
-  projectName: 'myportfolio',
+  projectName: 'portfolio',
   deploymentBranch: 'gh-pages',
   trailingSlash: false,
 
@@ -75,13 +75,14 @@ async function createConfig() {
           src: 'img/logo.svg',
         },
         items: [
+          { to: '/', label: 'Home', position: 'left', exact: true },
           {
             type: 'docSidebar',
             sidebarId: 'projectsSidebar',
             position: 'left',
             label: 'Projects',
           },
-          { to: '/blog', label: 'Blog', position: 'left' },
+          { to: '/blog', label: 'Blog & Activities', position: 'left' },
           { to: '/docs/about', label: 'About', position: 'left' },
           {
             href: 'https://github.com/fahmidza',
@@ -103,7 +104,7 @@ async function createConfig() {
             items: [
               { label: 'Projects', to: '/docs/intro' },
               { label: 'About Me', to: '/docs/about' },
-              { label: 'Blog', to: '/blog' },
+              { label: 'Blog & Activities', to: '/blog' },
             ],
           },
           {
