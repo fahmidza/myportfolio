@@ -1,9 +1,19 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { usePluginData } from '@docusaurus/useGlobalData';
 import Link from '@docusaurus/Link';
 import styles from './styles.module.css';
 
 export default function ProjectFilter() {
+  // Auto-collapse sidebar synchronously before browser paint to prevent flash
+  const useIsomorphicLayoutEffect = typeof window !== 'undefined' ? React.useLayoutEffect : React.useEffect;
+  
+  useIsomorphicLayoutEffect(() => {
+    const collapseBtn = document.querySelector('button[title="Collapse sidebar"]');
+    if (collapseBtn) {
+      collapseBtn.click();
+    }
+  }, []);
+
   let pluginData = { projects: [] };
   try {
     pluginData = usePluginData('plugin-projects-data');

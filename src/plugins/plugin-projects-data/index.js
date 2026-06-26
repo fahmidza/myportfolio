@@ -26,8 +26,8 @@ module.exports = function (context, options) {
   return {
     name: 'plugin-projects-data',
     getPathsToWatch() {
-      // Windows backslashes crash picomatch, so replace with forward slashes for globs
-      return [path.join(context.siteDir, 'docs', 'projects', '*.{md,mdx}').replace(/\\/g, '/')];
+      // Just return the directory path. Docusaurus/chokidar will watch all files inside it.
+      return [path.join(context.siteDir, 'docs', 'projects')];
     },
     async loadContent() {
       const projectsDir = path.join(context.siteDir, 'docs', 'projects');

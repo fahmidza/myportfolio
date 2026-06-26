@@ -713,3 +713,100 @@ article h2 {
   background: var(--ifm-color-primary);
   border: 3px solid var(--color-surface);
 }
+
+/* ======================================================
+   SIDEBAR COLLAPSE BUTTON CUSTOMIZATION (Moved to top)
+   ====================================================== */
+button[class*="collapseSidebarButton"] {
+  order: -1 !important;
+  margin-bottom: 15px !important;
+  margin-top: 5px !important;
+  border-top: none !important;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200) !important;
+}
+
+/* ======================================================
+   SIDEBAR COLLAPSE ANIMATION
+   ====================================================== */
+.theme-doc-sidebar-container {
+  transition: width 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease, transform 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important;
+  will-change: width;
+  overflow: hidden;
+}
+
+/* Animate the main content shifting when sidebar opens/closes */
+main {
+  transition: max-width 0.4s cubic-bezier(0.25, 1, 0.5, 1), width 0.4s cubic-bezier(0.25, 1, 0.5, 1), padding 0.4s ease, margin 0.4s ease !important;
+}
+
+/* ======================================================
+   SIDEBAR HEIGHT (75% of screen)
+   ====================================================== */
+@media (min-width: 997px) {
+  .theme-doc-sidebar-menu {
+    max-height: 75vh !important;
+    overflow-y: auto !important;
+    padding-bottom: 20px !important;
+    /* Fading effect at the bottom so it doesn't look cut off abruptly */
+    -webkit-mask-image: linear-gradient(to bottom, black calc(100% - 80px), transparent 100%);
+    mask-image: linear-gradient(to bottom, black calc(100% - 80px), transparent 100%);
+  }
+}
+
+/* ======================================================
+   TOOLS SECTION (Homepage)
+   ====================================================== */
+.tools-section {
+  padding: 4rem 2rem;
+  background-color: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+}
+
+.tools-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.tools-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  color: var(--color-text);
+}
+
+.tools-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.tool-card {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background-color: var(--ifm-background-color);
+  padding: 0.75rem 1.25rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--color-border);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tool-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.tool-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.tool-name {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--color-text);
+}

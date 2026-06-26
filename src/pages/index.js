@@ -46,6 +46,35 @@ function HeroSection() {
   );
 }
 
+function ToolsSection() {
+  const tools = [
+    { name: 'Python', icon: 'https://cdn.simpleicons.org/python/3776AB' },
+    { name: 'R', icon: 'https://cdn.simpleicons.org/r/276DC3' },
+    { name: 'SQL', icon: 'https://cdn.simpleicons.org/mysql/4479A1' },
+    { name: 'Excel', icon: 'https://img.icons8.com/color/96/microsoft-excel-2019--v1.png' },
+    { name: 'Word', icon: 'https://img.icons8.com/color/96/microsoft-word-2019--v2.png' },
+    { name: 'PowerPoint', icon: 'https://img.icons8.com/color/96/microsoft-powerpoint-2019--v1.png' },
+    { name: 'Tableau', icon: 'https://img.icons8.com/color/96/tableau-software.png' },
+    { name: 'PowerBI', icon: 'https://img.icons8.com/color/96/power-bi.png' },
+  ];
+
+  return (
+    <section className="tools-section">
+      <div className="tools-container">
+        <h3 className="tools-title">Tools &amp; Technologies</h3>
+        <div className="tools-grid">
+          {tools.map((tool, idx) => (
+            <div key={idx} className="tool-card">
+              <img src={tool.icon} alt={tool.name} className="tool-icon" />
+              <span className="tool-name">{tool.name}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 // === Main Page ===
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
@@ -55,6 +84,7 @@ export default function Home() {
       description="Professional portfolio of Dzulfahmi Dzakia Ahmad — Data Scientist specializing in statistical analysis, machine learning, and data-driven insights."
     >
       <HeroSection />
+      <ToolsSection />
     </Layout>
   );
 }
