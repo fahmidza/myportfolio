@@ -72,6 +72,12 @@ async function createConfig() {
         disableSwitch: false,
         respectPrefersColorScheme: true,
       },
+      docs: {
+        sidebar: {
+          hideable: true,
+          autoCollapseCategories: true,
+        },
+      },
       navbar: {
         title: 'Dzulfahmi D.A.',
         logo: {

@@ -25,6 +25,9 @@ function parseFrontmatter(content) {
 module.exports = function (context, options) {
   return {
     name: 'plugin-projects-data',
+    getPathsToWatch() {
+      return [path.join(context.siteDir, 'docs', 'projects', '*.{md,mdx}')];
+    },
     async loadContent() {
       const projectsDir = path.join(context.siteDir, 'docs', 'projects');
       if (!fs.existsSync(projectsDir)) return [];
