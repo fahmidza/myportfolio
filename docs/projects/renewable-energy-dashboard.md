@@ -1,9 +1,13 @@
 ---
-category: "dashboards"
+category: dashboardss
 sidebar_position: 2
-title: "Renewable Energy Dashboard"
-description: "Analytical dashboard exploring renewable energy potential across Indonesian provinces."
-tags: [dashboard, data-visualization, energy, indonesia]
+title: Renewable Energy Dashboard
+description: Analytical dashboard exploring renewable energy potential across Indonesian provinces.
+tags:
+  - dashboard
+  - data-visualization
+  - energy
+  - indonesia
 ---
 
 # Renewable Energy Potential Dashboard — Indonesia
@@ -21,7 +25,7 @@ Indonesia aims to increase its renewable energy share significantly in the comin
 ## Tech Stack & Tools
 
 | Tool | Purpose |
-|------|---------|
+| --- | --- |
 | Google Data Studio / Power BI | Interactive dashboard |
 | Python | Data preprocessing |
 | Pandas | Data cleaning and aggregation |
@@ -30,17 +34,20 @@ Indonesia aims to increase its renewable energy share significantly in the comin
 ## Methodology & Approach
 
 ### 1. Data Collection & Preprocessing
+
 - Gathered renewable energy potential data across Indonesian provinces
 - Cleaned and standardized metrics for cross-province comparison
 - Calculated potential capacity by energy source
 
 ### 2. Dashboard Design
+
 - **Provincial comparison** — Side-by-side energy potential rankings
 - **Energy type breakdown** — Solar, wind, hydro, geothermal distributions
 - **Geographic heatmaps** — Spatial visualization of energy potential
 - **Trend analysis** — Historical and projected capacity growth
 
 ### 3. Strategic Analysis
+
 - Identified provinces with highest untapped potential
 - Compared investment cost-effectiveness by region
 - Highlighted infrastructure readiness gaps
