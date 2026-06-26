@@ -2,25 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://fahmidza.github.io/myportfolio/blog</id>
     <title>Dzulfahmi Dzakia Ahmad Blog</title>
-    <updated>2026-06-26T00:00:00.000Z</updated>
+    <updated>2025-06-10T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://fahmidza.github.io/myportfolio/blog"/>
     <subtitle>Dzulfahmi Dzakia Ahmad Blog</subtitle>
     <icon>https://fahmidza.github.io/myportfolio/img/favicon.ico</icon>
-    <entry>
-        <title type="html"><![CDATA[tesgambar]]></title>
-        <id>https://fahmidza.github.io/myportfolio/blog/tesuploadgambar</id>
-        <link href="https://fahmidza.github.io/myportfolio/blog/tesuploadgambar"/>
-        <updated>2026-06-26T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[ini adalah gambar]]></summary>
-        <content type="html"><![CDATA[<p>ini adalah gambar</p>
-<p><img decoding="async" loading="lazy" src="https://fahmidza.github.io/myportfolio/assets/images/dashboards_category-be8694376d6d99f4da6c3bea2b07198e.png" width="1024" height="1024" class="img_ev3q"></p>]]></content>
-        <author>
-            <name>Dzulfahmi Dzakia Ahmad</name>
-            <uri>https://github.com/fahmidza</uri>
-        </author>
-        <category label="picture" term="picture"/>
-    </entry>
     <entry>
         <title type="html"><![CDATA[5 Lessons from Building Machine Learning Models in the Real World]]></title>
         <id>https://fahmidza.github.io/myportfolio/blog/lessons-from-ml-projects</id>
