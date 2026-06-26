@@ -23,6 +23,13 @@ async function createConfig() {
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
 
+  stylesheets: [
+    {
+      href: 'https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css',
+      type: 'text/css',
+    },
+  ],
+
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
@@ -61,13 +68,6 @@ async function createConfig() {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       image: 'img/social-card.jpg',
-      // KaTeX CSS for math equation rendering
-      stylesheets: [
-        {
-          href: 'https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css',
-          type: 'text/css',
-        },
-      ],
       colorMode: {
         defaultMode: 'dark',
         disableSwitch: false,
