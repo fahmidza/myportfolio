@@ -65,6 +65,7 @@ module.exports = function (context, options) {
           description: data.description || '',
           category: data.category || 'Other',
           tags: Array.isArray(data.tags) ? data.tags : [],
+          image: data.project_image || '',
           permalink: `/portfolio/docs/projects/${file.replace(/\.mdx?$/, '')}`,
         };
       });

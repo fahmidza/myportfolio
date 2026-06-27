@@ -810,3 +810,11 @@ main {
   font-size: 1rem;
   color: var(--color-text);
 }
+
+/* ======================================================
+   PROJECT HERO — Hide default title when hero is present
+   ====================================================== */
+.project-hero-active + div h1:first-of-type,
+.project-hero-active ~ h1:first-of-type {
+  display: none;
+}

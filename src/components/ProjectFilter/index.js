@@ -77,6 +77,14 @@ export default function ProjectFilter() {
         <div className={styles.projectGrid}>
           {filteredProjects.map((project) => (
             <Link to={project.permalink} key={project.id} className={`card shadow--sm ${styles.projectCard}`}>
+              <div className={styles.cardThumbnail}>
+                <img
+                  src={project.image || '/portfolio/img/projects/placeholder.svg'}
+                  alt={project.title}
+                  className={styles.cardThumbnailImg}
+                  loading="lazy"
+                />
+              </div>
               <div className={`card__header ${styles.cardHeader}`}>
                 <span className={styles.cardCategory}>{project.category}</span>
                 <h3 className={styles.cardTitle}>{project.title}</h3>
