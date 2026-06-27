@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import {useDoc} from '@docusaurus/plugin-content-docs/client';
 import { usePluginData } from '@docusaurus/useGlobalData';
 import styles from './styles.module.css';
+import ImageCarousel from '../ImageCarousel';
 
 const PLACEHOLDER_IMAGE = '/portfolio/img/projects/placeholder.svg';
 
@@ -17,7 +18,7 @@ export default function ProjectHero() {
   const heroRef = useRef(null);
   const projects = pluginData?.projects || [];
   const currentProject = projects.find(p => metadata.permalink === p.permalink);
-  const image = currentProject?.image || PLACEHOLDER_IMAGE;
+  const images = currentProject?.images || [PLACEHOLDER_IMAGE];
   
   const title = metadata.title || 'Project';
   const description = metadata.description || '';
@@ -40,9 +41,9 @@ export default function ProjectHero() {
   return (
     <div className={styles.heroWrapper} ref={heroRef}>
       <div className={styles.heroImageContainer}>
-        <img
-          src={image}
-          alt={title}
+        <ImageCarousel 
+          images={images} 
+          alt={title} 
           className={styles.heroImage}
         />
         <div className={styles.heroOverlay} />

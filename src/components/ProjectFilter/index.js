@@ -3,6 +3,8 @@ import { usePluginData } from '@docusaurus/useGlobalData';
 import Link from '@docusaurus/Link';
 import styles from './styles.module.css';
 
+import ImageCarousel from '../ImageCarousel';
+
 export default function ProjectFilter() {
   // Auto-collapse sidebar synchronously before browser paint to prevent flash
   const useIsomorphicLayoutEffect = typeof window !== 'undefined' ? React.useLayoutEffect : React.useEffect;

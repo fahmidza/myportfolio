@@ -54,15 +54,20 @@ module.exports = function (context, options) {
         const content = fs.readFileSync(filePath, 'utf-8');
         const { data } = parseFrontmatter(content);
         
-        // Extract first image from markdown if project_image is empty
-        let autoImage = '';
-        const imgMatch = content.match(/!\[.*?\]\((.*?)\)|<img.*?src=["'](.*?)["']/);
-        if (imgMatch) {
-          autoImage = imgMatch[1] || imgMatch[2];
-          // Simple fix for Sveltia CMS default public path (/img/) -> relative to Docusaurus base URL
-          if (autoImage.startsWith('/img/')) {
-            autoImage = `/portfolio${autoImage}`;
+        // Extract up to 4 images from markdown body
+        let autoImages = [];
+        const imgRegex = /!\[.*?\]\((.*?)\)|<img.*?src=["'](.*?)["']/g;
+        let match;
+        while ((match = imgRegex.exec(content)) !== null && autoImages.length < 4) {
+          let imgPath = match[1] || match[2];
+          if (imgPath.startsWith('/img/')) {
+            imgPath = `/portfolio${imgPath}`;
           }
+          autoImages.push(imgPath);
+        }
+        
+        if (autoImages.length === 0) {
+          autoImages.push('/portfolio/img/projects/placeholder.svg');
         }
 
         // Map category ID to display name if exists
@@ -76,7 +81,7 @@ module.exports = function (context, options) {
           description: data.description || '',
           category: data.category || 'Other',
           tags: Array.isArray(data.tags) ? data.tags : [],
-          image: data.project_image || autoImage || '',
+          images: autoImages,
           permalink: `/portfolio/docs/projects/${file.replace(/\.mdx?$/, '')}`,
         };
       });
