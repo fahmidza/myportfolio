@@ -80,11 +80,10 @@ export default function ProjectFilter() {
           {filteredProjects.map((project) => (
             <Link to={project.permalink} key={project.id} className={`card shadow--sm ${styles.projectCard}`}>
               <div className={styles.cardThumbnail}>
-                <img
-                  src={project.image || '/portfolio/img/projects/placeholder.svg'}
-                  alt={project.title}
+                <ImageCarousel 
+                  images={project.images} 
+                  alt={project.title} 
                   className={styles.cardThumbnailImg}
-                  loading="lazy"
                 />
               </div>
               <div className={`card__header ${styles.cardHeader}`}>
