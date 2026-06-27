@@ -125,6 +125,12 @@ collections:
         widget: "list"
         hint: "e.g. python, clustering, react"
 
+      - label: "Thumbnail / Hero Image (Optional)"
+        name: "project_image"
+        widget: "image"
+        required: false
+        hint: "Pilih gambar untuk cover. Jika dikosongkan, sistem akan otomatis mengambil gambar pertama dari isi artikel."
+
       - label: "Body"
         name: "body"
         widget: "markdown"

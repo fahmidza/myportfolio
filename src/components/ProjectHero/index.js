@@ -1,13 +1,24 @@
 import React, { useEffect, useRef } from 'react';
 import {useDoc} from '@docusaurus/plugin-content-docs/client';
+import { usePluginData } from '@docusaurus/useGlobalData';
 import styles from './styles.module.css';
 
 const PLACEHOLDER_IMAGE = '/portfolio/img/projects/placeholder.svg';
 
 export default function ProjectHero() {
   const { metadata, frontMatter } = useDoc();
+  let pluginData = { projects: [] };
+  try {
+    pluginData = usePluginData('plugin-projects-data');
+  } catch (e) {
+    console.error("Plugin data not loaded yet", e);
+  }
+  
   const heroRef = useRef(null);
-  const image = frontMatter.project_image || PLACEHOLDER_IMAGE;
+  const projects = pluginData?.projects || [];
+  const currentProject = projects.find(p => metadata.permalink === p.permalink);
+  const image = currentProject?.image || PLACEHOLDER_IMAGE;
+  
   const title = metadata.title || 'Project';
   const description = metadata.description || '';
   const category = frontMatter.category || '';

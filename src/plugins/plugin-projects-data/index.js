@@ -26,8 +26,8 @@ module.exports = function (context, options) {
   return {
     name: 'plugin-projects-data',
     getPathsToWatch() {
-      // Just return the directory path. Docusaurus/chokidar will watch all files inside it.
-      return [path.join(context.siteDir, 'docs', 'projects')];
+      const watchPath = path.join(context.siteDir, 'docs', 'projects', '**/*.{md,mdx}');
+      return [watchPath.replace(/\\/g, '/')];
     },
     async loadContent() {
       const projectsDir = path.join(context.siteDir, 'docs', 'projects');
@@ -54,6 +54,17 @@ module.exports = function (context, options) {
         const content = fs.readFileSync(filePath, 'utf-8');
         const { data } = parseFrontmatter(content);
         
+        // Extract first image from markdown if project_image is empty
+        let autoImage = '';
+        const imgMatch = content.match(/!\[.*?\]\((.*?)\)|<img.*?src=["'](.*?)["']/);
+        if (imgMatch) {
+          autoImage = imgMatch[1] || imgMatch[2];
+          // Simple fix for Sveltia CMS default public path (/img/) -> relative to Docusaurus base URL
+          if (autoImage.startsWith('/img/')) {
+            autoImage = `/portfolio${autoImage}`;
+          }
+        }
+
         // Map category ID to display name if exists
         if (data.category && catMap[data.category]) {
           data.category = catMap[data.category];
@@ -65,7 +76,7 @@ module.exports = function (context, options) {
           description: data.description || '',
           category: data.category || 'Other',
           tags: Array.isArray(data.tags) ? data.tags : [],
-          image: data.project_image || '',
+          image: data.project_image || autoImage || '',
           permalink: `/portfolio/docs/projects/${file.replace(/\.mdx?$/, '')}`,
         };
       });

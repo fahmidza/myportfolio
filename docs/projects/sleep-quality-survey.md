@@ -8,6 +8,8 @@ tags: [statistics, survey, research, analysis]
 
 # Sleep Quality & Academic Concentration Survey
 
+![Sleep Survey Data](/img/pasted-image-1782565851822.png)
+
 > Investigating how student sleep quality impacts learning concentration through primary survey research and statistical analysis.
 
 ## Overview
