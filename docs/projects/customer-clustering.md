@@ -56,14 +56,6 @@ Source: `data_clustering.xlsx`
 - Missing value detection and handling
 - Correlation heatmaps and feature relationships
 
-![](/img/pasted-image-1782570652040.png)
-
-![](/img/pasted-image-1782570662441.png)
-
-![](/img/pasted-image-1782570669605.png)
-
-![](/img/pasted-image-1782570677093.png)
-
 ### 2. Data Preprocessing
 
 - **Outlier handling** using RobustScaler for robustness against extreme values
@@ -105,19 +97,6 @@ All models evaluated using **Silhouette Score** to measure cluster cohesion and 
 - **Cluster 1:** Focus on increasing transaction value through targeted promotions
 - **Cluster 2:** Strengthen loyalty through incentive programs and engagement
 - **Cluster 3:** Retain premium customers with exclusive services and VIP treatment
-
-## How to Reproduce
-
-```bash
-# Clone the repository
-git clone https://github.com/fahmidza/Analisis-Clustering-untuk-Data-Transaksi-Pelanggan.git
-
-# Install dependencies
-pip install pandas numpy scikit-learn keras scipy matplotlib seaborn
-
-# Run the notebook
-jupyter notebook "Sintaks Clustering.ipynb"
-```
 
 ## Challenges & Solutions
 
