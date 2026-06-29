@@ -10,10 +10,21 @@ function generateFlatSidebar() {
     projectFiles.forEach(file => {
       if (file === 'index.mdx' || file === 'index.md') return; // Skip index
       
+      const filePath = path.join(projectsDir, file);
+      const content = fs.readFileSync(filePath, 'utf8');
+      
+      // Simple regex to grab the date from frontmatter (e.g., date: 2023-01-01)
+      const dateMatch = content.match(/date:\s*([^\r\n]+)/);
+      const dateValue = dateMatch ? new Date(dateMatch[1].trim()) : new Date(0); // Default to epoch if no date
+      
       const docId = `projects/${file.replace(/\.mdx?$/, '')}`;
-      projectItems.push(docId);
+      projectItems.push({ id: docId, date: dateValue });
     });
   }
+  
+  // Sort items by date, newest first (descending)
+  projectItems.sort((a, b) => b.date - a.date);
+  const sortedIds = projectItems.map(item => item.id);
   
   // Construct the final flat sidebar
   return [
@@ -27,7 +38,7 @@ function generateFlatSidebar() {
       value: '<div style="height: 1px; background-color: var(--ifm-color-emphasis-300); margin: 0.5rem 1rem;"></div>',
       defaultStyle: true,
     },
-    ...projectItems.sort() // Alphabetical sort, or you can let Docusaurus sort by sidebar_position if we mapped them
+    ...sortedIds
   ];
 }
 

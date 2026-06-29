@@ -3,6 +3,21 @@ import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
+const tools = [
+  { name: 'Python', icon: 'https://cdn.simpleicons.org/python/3776AB' },
+  { name: 'R', icon: 'https://cdn.simpleicons.org/r/276DC3' },
+  { name: 'SQL', icon: 'https://cdn.simpleicons.org/mysql/4479A1' },
+  { name: 'Excel', icon: 'https://img.icons8.com/color/96/microsoft-excel-2019--v1.png' },
+  { name: 'Word', icon: 'https://img.icons8.com/color/96/microsoft-word-2019--v2.png' },
+  { name: 'PowerPoint', icon: 'https://img.icons8.com/color/96/microsoft-powerpoint-2019--v1.png' },
+  { name: 'Tableau', icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-mfZH4vg-AxYbGmWJBz1m9vm88KRZ_DhJycKh38cUoT7x7IVVOr4e02b7&s=10' },
+  { name: 'PowerBI', icon: 'https://img.icons8.com/color/96/power-bi.png' },
+  { name: 'Data Studio', icon: 'https://img.icons8.com/fluent/1200/google-data-studio.jpg' },
+  { name: 'Canva', icon: 'https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/canva-icon.png' },
+  { name: 'Jupyter Notebook', icon: 'https://images.seeklogo.com/logo-png/35/1/jupyter-logo-png_seeklogo-354673.png' },
+  { name: 'Git & GitHub', icon: 'https://image.web.id/images/git-vs-github.png' },
+];
+
 // === Components ===
 function HeroSection() {
   return (
@@ -27,48 +42,27 @@ function HeroSection() {
         <div className="hero-content-right">
           <div className="hero-image-wrapper">
             <img src="https://github.com/fahmidza.png" alt="Dzulfahmi Dzakia Ahmad" className="hero-profile-image" />
-            <div className="floating-pill pill-1">
+            
+            <div className="floating-pill text-pill text-pill-0">
               <span className="pill-icon">🤖</span> Machine Learning
             </div>
-            <div className="floating-pill pill-2">
+            <div className="floating-pill text-pill text-pill-1">
               <span className="pill-icon">📊</span> Data Science
             </div>
-            <div className="floating-pill pill-3">
+            <div className="floating-pill text-pill text-pill-2">
               <span className="pill-icon">📈</span> Analytics
             </div>
-            <div className="floating-pill pill-4">
+            <div className="floating-pill text-pill text-pill-3">
               <span className="pill-icon">📝</span> Statistics
             </div>
+
+            {tools.map((tool, idx) => (
+              <div key={idx} className={`floating-pill tool-pill tool-pill-${idx}`}>
+                <img src={tool.icon} alt={tool.name} className="tool-pill-icon" />
+                <span className="tool-pill-name">{tool.name}</span>
+              </div>
+            ))}
           </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function ToolsSection() {
-  const tools = [
-    { name: 'Python', icon: 'https://cdn.simpleicons.org/python/3776AB' },
-    { name: 'R', icon: 'https://cdn.simpleicons.org/r/276DC3' },
-    { name: 'SQL', icon: 'https://cdn.simpleicons.org/mysql/4479A1' },
-    { name: 'Excel', icon: 'https://img.icons8.com/color/96/microsoft-excel-2019--v1.png' },
-    { name: 'Word', icon: 'https://img.icons8.com/color/96/microsoft-word-2019--v2.png' },
-    { name: 'PowerPoint', icon: 'https://img.icons8.com/color/96/microsoft-powerpoint-2019--v1.png' },
-    { name: 'Tableau', icon: 'https://img.icons8.com/color/96/tableau-software.png' },
-    { name: 'PowerBI', icon: 'https://img.icons8.com/color/96/power-bi.png' },
-  ];
-
-  return (
-    <section className="tools-section">
-      <div className="tools-container">
-        <h3 className="tools-title">Tools &amp; Technologies</h3>
-        <div className="tools-grid">
-          {tools.map((tool, idx) => (
-            <div key={idx} className="tool-card">
-              <img src={tool.icon} alt={tool.name} className="tool-icon" />
-              <span className="tool-name">{tool.name}</span>
-            </div>
-          ))}
         </div>
       </div>
     </section>
@@ -84,7 +78,6 @@ export default function Home() {
       description="Professional portfolio of Dzulfahmi Dzakia Ahmad — Data Scientist specializing in statistical analysis, machine learning, and data-driven insights."
     >
       <HeroSection />
-      <ToolsSection />
     </Layout>
   );
 }

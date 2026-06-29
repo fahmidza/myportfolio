@@ -56,7 +56,7 @@ export default function ContentWrapper(props) {
       {isProjectPage && (
         <div className="project-overview-cta">
           <Link className="button button--primary button--lg" to="/docs/projects">
-            ← Back to Project Overview
+            ← Back to Projects Home
           </Link>
         </div>
       )}

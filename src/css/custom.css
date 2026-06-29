@@ -302,30 +302,35 @@ body {
   }
 }
 
-.pill-1 {
-  top: 10%;
-  left: -20%;
-  animation-delay: 0s;
+.tool-pill {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.75rem;
+  border-radius: 50px;
 }
 
-.pill-2 {
-  top: 40%;
-  right: -25%;
-  animation-delay: 1s;
+.tool-pill-icon {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
 }
 
-.pill-3 {
-  bottom: 15%;
-  left: -10%;
-  animation-delay: 2s;
-}
+.text-pill-0 { top: 10%; left: -20%; animation-delay: 0s; }
+.text-pill-1 { top: 40%; right: -25%; animation-delay: 1s; }
+.text-pill-2 { bottom: 15%; left: -10%; animation-delay: 2s; }
+.text-pill-3 { bottom: -5%; right: 10%; animation-delay: 1.5s; }
 
-.pill-4 {
-  bottom: -5%;
-  right: 10%;
-  animation-delay: 1.5s;
-}
-
+.tool-pill-0 { top: -10%; left: 20%; animation-delay: 0.3s; }
+.tool-pill-1 { top: -5%; right: 10%; animation-delay: 0.7s; }
+.tool-pill-2 { top: 25%; left: -30%; animation-delay: 1.2s; }
+.tool-pill-3 { top: 15%; right: -35%; animation-delay: 1.8s; }
+.tool-pill-4 { top: 55%; left: -30%; animation-delay: 2.3s; }
+.tool-pill-5 { top: 70%; right: -30%; animation-delay: 2.9s; }
+.tool-pill-6 { bottom: -12%; left: 0%; animation-delay: 3.5s; }
+.tool-pill-7 { bottom: -12%; right: -5%; animation-delay: 4.1s; }
+.tool-pill-8 { bottom: 25%; right: -35%; animation-delay: 4.8s; }
+.tool-pill-9 { top: -15%; right: -10%; animation-delay: 5.2s; }
+.tool-pill-10 { bottom: 5%; left: -35%; animation-delay: 5.7s; }
+.tool-pill-11 { bottom: -20%; right: 25%; animation-delay: 6.1s; }
 /* ---- Stats Bar ---- */
 .stats-bar {
   display: flex;
@@ -886,6 +891,8 @@ main {
   flex-wrap: wrap;
   justify-content: center;
   gap: 1.5rem;
+  max-width: 850px;
+  margin: 0 auto;
 }
 
 .tool-card {
