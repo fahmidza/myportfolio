@@ -1,5 +1,4 @@
 ---
-category: dashboardss
 sidebar_position: 1
 title: Customer Transaction Clustering
 description: Comparative clustering analysis on customer transaction data using 7 different methods including K-Means, GMM, and Deep Clustering.
@@ -9,6 +8,10 @@ tags:
   - unsupervised-learning
   - scikit-learn
   - keras
+  - Dashboard
+  - Pyhton
+  - R
+category: dashboardss
 ---
 
 # Customer Transaction Clustering Analysis
