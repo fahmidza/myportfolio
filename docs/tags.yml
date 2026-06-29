@@ -1,4 +1,4 @@
-machine-learning:
+Machine Learning:
   label: Machine Learning
 Dashboard:
   label: Dashboard
@@ -6,3 +6,11 @@ Python:
   label: Python
 R:
   label: R
+Excel:
+  label: Excel
+Power BI:
+  label: Power BI
+Data Studio:
+  label: Data Studio
+SQL:
+  label: SQL

@@ -1,15 +1,15 @@
 /* ---- Project Hero Banner ---- */
 .heroWrapper {
   position: relative;
-  margin: -1rem -1rem 2.5rem -1rem;
-  border-radius: 0 0 var(--card-border-radius, 16px) var(--card-border-radius, 16px);
+  margin: 0.5rem 0 2.5rem 0;
+  border-radius: var(--card-border-radius, 16px);
   overflow: hidden;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
 }
 
 @media (min-width: 997px) {
   .heroWrapper {
-    margin: -1rem -2rem 2.5rem -2rem;
+    margin: 1rem 0 2.5rem 0;
   }
 }
 

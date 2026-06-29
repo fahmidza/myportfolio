@@ -565,6 +565,18 @@ body {
   border-right: 1px solid var(--color-border) !important;
 }
 
+.theme-doc-sidebar-menu {
+  overflow-x: hidden !important;
+}
+
+/* Sembunyikan scrollbar horizontal secara fisik */
+.theme-doc-sidebar-menu::-webkit-scrollbar:horizontal,
+.thin-scrollbar::-webkit-scrollbar:horizontal,
+.menu::-webkit-scrollbar:horizontal {
+  display: none !important;
+  height: 0 !important;
+}
+
 .project-reading-progress {
   position: fixed;
   top: calc(var(--ifm-navbar-height, 4rem) - 1px);
@@ -937,13 +949,16 @@ main {
 /* --- Konfigurasi Google Translate --- */
 
 /* Sembunyikan banner "Google Translate" yang muncul di atas layar */
-.goog-te-banner-frame.skiptranslate {
+.goog-te-banner-frame.skiptranslate,
+iframe.skiptranslate,
+.VIpgJd-ZVi9od-aZ2wEe-wOHMyf {
   display: none !important;
 }
 
 /* Cegah body tergeser ke bawah oleh banner */
 body {
   top: 0px !important;
+  position: static !important;
 }
 
 /* Modifikasi tampilan container di navbar agar rapi */
@@ -953,10 +968,32 @@ body {
   margin-right: 12px;
 }
 
+/* Di HP, sembunyikan container translate dari navbar atas, tampilkan di dalam menu sidebar */
+@media (max-width: 996px) {
+  .navbar .google-translate-container {
+    display: none !important;
+  }
+  .menu__list .google-translate-container {
+    display: flex !important;
+    padding: 0.5rem 1rem;
+    margin-bottom: 1rem;
+  }
+}
+
+/* Buat menu HP full screen agar tidak ada blok abu-abu (backdrop) di pinggir */
+:root {
+  --ifm-navbar-sidebar-width: 100vw;
+}
 /* Styling dropdown button google translate */
 .goog-te-gadget {
   font-family: var(--ifm-font-family-base) !important;
   color: transparent !important; /* menyembunyikan teks 'Powered by Google' */
+  font-size: 0px !important; /* menghilangkan ruang kosong teks */
+}
+
+.goog-te-gadget > span,
+.goog-te-gadget > a {
+  display: none !important;
 }
 .goog-te-gadget .goog-te-combo {
   padding: 4px 8px;
@@ -987,4 +1024,9 @@ body {
 
 [data-theme='dark'] .github-icon {
   filter: invert(1) brightness(2);
+}
+
+.linkedin-icon {
+  transform: scale(1.35);
+  transform-origin: center;
 }
