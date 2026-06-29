@@ -91,12 +91,12 @@ async function createConfig() {
             { to: '/docs/about', label: 'About Me', position: 'left' },
             {
               href: 'https://github.com/fahmidza',
-              label: 'GitHub',
+              html: '<img src="https://static.vecteezy.com/system/resources/previews/016/833/872/non_2x/github-logo-git-hub-icon-on-white-background-free-vector.jpg" alt="GitHub" style="width:20px; height:20px; vertical-align:-4px; margin-right:6px; mix-blend-mode: multiply;" /> GitHub',
               position: 'right',
             },
             {
               href: 'https://www.linkedin.com/in/dzulfahmidzakiaahmad/',
-              label: 'LinkedIn',
+              html: '<img src="https://img.magnific.com/premium-vector/square-linkedin-logo-isolated-white-background_469489-892.jpg?w=360" alt="LinkedIn" style="width:20px; height:20px; vertical-align:-4px; margin-right:6px; mix-blend-mode: multiply;" /> LinkedIn',
               position: 'right',
             },
           ],
