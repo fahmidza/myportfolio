@@ -8,9 +8,8 @@ tags:
   - unsupervised-learning
   - scikit-learn
   - keras
-  - Dashboard
-  - Pyhton
-  - R
+  - dashboard
+  - r
 category: dashboardss
 ---
 
