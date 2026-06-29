@@ -1,28 +1,6 @@
-business-intelligence:
-  label: Business Intelligence
-clustering:
-  label: Clustering
-cybersecurity:
-  label: Cybersecurity
-dashboard:
+Dashboard:
   label: Dashboard
-data-visualization:
-  label: Data Visualization
-energy:
-  label: Energy
-indonesia:
-  label: Indonesia
-keras:
-  label: Keras
-machine-learning:
-  label: Machine Learning
-nlp:
-  label: Nlp
-python:
-  label: Python
-scikit-learn:
-  label: Scikit Learn
-unsupervised-learning:
-  label: Unsupervised Learning
-web-app:
-  label: Web App
+Pyhton:
+  label: Pyhton
+R:
+  label: R
