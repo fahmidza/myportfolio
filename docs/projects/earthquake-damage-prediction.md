@@ -22,19 +22,20 @@ Indonesia sits on the Pacific Ring of Fire, making it highly prone to seismic ac
 
 ## Tech Stack & Tools
 
-| Tool | Purpose |
-|------|---------|
-| Python | Core programming language |
-| CatBoost | Gradient boosting classification |
-| SHAP | Model interpretability and feature importance |
-| Pandas & NumPy | Data processing |
-| Scikit-learn | Preprocessing and evaluation |
-| Matplotlib & Seaborn | Visualization |
-| Jupyter Notebook | Development environment |
+| Tool                 | Purpose                                       |
+| -------------------- | --------------------------------------------- |
+| Python               | Core programming language                     |
+| CatBoost             | Gradient boosting classification              |
+| SHAP                 | Model interpretability and feature importance |
+| Pandas & NumPy       | Data processing                               |
+| Scikit-learn         | Preprocessing and evaluation                  |
+| Matplotlib & Seaborn | Visualization                                 |
+| Jupyter Notebook     | Development environment                       |
 
 ## Dataset Description
 
 The dataset contains building characteristics and earthquake damage assessments:
+
 - **Building features:** Age, height, floor count, construction materials
 - **Geographic data:** Location coordinates, district information
 - **Structural data:** Foundation type, roof type, wall material
@@ -43,22 +44,26 @@ The dataset contains building characteristics and earthquake damage assessments:
 ## Methodology & Approach
 
 ### 1. Exploratory Data Analysis
+
 - Damage distribution analysis across regions
 - Feature correlation and importance exploration
 - Missing value treatment and data quality checks
 
 ### 2. Feature Engineering
+
 - Categorical encoding for building materials
 - Geographic feature extraction
 - Interaction features between structural components
 
 ### 3. Model Training
+
 - **CatBoost Classifier** — handles categorical features natively
 - Hyperparameter tuning via grid search / Bayesian optimization
 - Cross-validation for robust performance estimation
 - Class imbalance handling strategies
 
 ### 4. Interpretability with SHAP
+
 - Global feature importance ranking
 - Individual prediction explanations
 - Dependence plots for key features
@@ -67,16 +72,19 @@ The dataset contains building characteristics and earthquake damage assessments:
 ## Key Results & Insights
 
 ### Model Performance
+
 - CatBoost achieved strong multi-class classification accuracy
 - SHAP analysis revealed the **most critical vulnerability factors**
 
 ### Top Contributing Features (via SHAP)
+
 1. **Building age** — Older buildings significantly more vulnerable
 2. **Construction material** — Certain materials correlate with higher damage
 3. **Foundation type** — Strong foundations reduce damage probability
 4. **Geographic location** — Proximity to fault lines matters
 
 ### Practical Impact
+
 - Model can **prioritize building inspections** in earthquake-prone areas
 - SHAP explanations make results **actionable for non-technical stakeholders**
 - Results inform building code recommendations
@@ -91,11 +99,11 @@ jupyter notebook
 
 ## Challenges & Solutions
 
-| Challenge | Solution |
-|-----------|----------|
-| High-cardinality categorical features | Leveraged CatBoost's native categorical handling |
-| Multi-class imbalance | Applied class weights and stratified sampling |
-| Model black-box concern | SHAP provides transparent, interpretable explanations |
+| Challenge                             | Solution                                              |
+| ------------------------------------- | ----------------------------------------------------- |
+| High-cardinality categorical features | Leveraged CatBoost's native categorical handling      |
+| Multi-class imbalance                 | Applied class weights and stratified sampling         |
+| Model black-box concern               | SHAP provides transparent, interpretable explanations |
 
 ## Future Improvements
 

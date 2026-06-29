@@ -22,15 +22,15 @@ Businesses often struggle to understand the diverse behavioral patterns within t
 
 ## Tech Stack & Tools
 
-| Tool | Purpose |
-| --- | --- |
-| Python | Primary programming language |
-| Pandas & NumPy | Data manipulation and preprocessing |
-| Scikit-learn | K-Means, Agglomerative, GMM clustering |
-| Keras | Deep Clustering (Autoencoder + K-Means) |
-| Scipy | K-Medians, Fuzzy C-Means |
-| Matplotlib & Seaborn | Visualization and EDA |
-| Jupyter Notebook | Development environment |
+| Tool                 | Purpose                                 |
+| -------------------- | --------------------------------------- |
+| Python               | Primary programming language            |
+| Pandas & NumPy       | Data manipulation and preprocessing     |
+| Scikit-learn         | K-Means, Agglomerative, GMM clustering  |
+| Keras                | Deep Clustering (Autoencoder + K-Means) |
+| Scipy                | K-Medians, Fuzzy C-Means                |
+| Matplotlib & Seaborn | Visualization and EDA                   |
+| Jupyter Notebook     | Development environment                 |
 
 ## Dataset Description
 
@@ -60,16 +60,16 @@ Source: `data_clustering.xlsx`
 
 ### 3. Clustering Methods Applied
 
-| # | Method | Approach |
-| --- | --- | --- |
-| 1 | **K-Means** | Centroid-based partitioning |
-| 2 | **K-Medians** | Robust median-based clustering |
-| 3 | **K-Medoids** | Exemplar-based, outlier-resistant |
-| 4 | **Agglomerative** | Hierarchical bottom-up merging |
-| 5 | **Fuzzy C-Means** | Soft/partial membership assignment |
-| 6 | **Robust Weighted K-Means** | Weighted for outlier data |
-| 7 | **Gaussian Mixture Model** | Probabilistic distribution-based |
-| 8 | **Deep Clustering** | Autoencoder + K-Means hybrid |
+| #   | Method                      | Approach                           |
+| --- | --------------------------- | ---------------------------------- |
+| 1   | **K-Means**                 | Centroid-based partitioning        |
+| 2   | **K-Medians**               | Robust median-based clustering     |
+| 3   | **K-Medoids**               | Exemplar-based, outlier-resistant  |
+| 4   | **Agglomerative**           | Hierarchical bottom-up merging     |
+| 5   | **Fuzzy C-Means**           | Soft/partial membership assignment |
+| 6   | **Robust Weighted K-Means** | Weighted for outlier data          |
+| 7   | **Gaussian Mixture Model**  | Probabilistic distribution-based   |
+| 8   | **Deep Clustering**         | Autoencoder + K-Means hybrid       |
 
 ### 4. Evaluation
 
@@ -83,10 +83,10 @@ All models evaluated using **Silhouette Score** to measure cluster cohesion and 
 
 ### Customer Segments Identified
 
-| Cluster | Profile | Characteristics |
-| --- | --- | --- |
-| **Cluster 1** | Budget Shoppers | Low transaction values, small cities |
-| **Cluster 2** | Regular Consumers | Medium transactions, large cities |
+| Cluster       | Profile           | Characteristics                             |
+| ------------- | ----------------- | ------------------------------------------- |
+| **Cluster 1** | Budget Shoppers   | Low transaction values, small cities        |
+| **Cluster 2** | Regular Consumers | Medium transactions, large cities           |
 | **Cluster 3** | Premium Customers | High transaction values, metropolitan areas |
 
 ### Strategic Recommendations
@@ -97,11 +97,11 @@ All models evaluated using **Silhouette Score** to measure cluster cohesion and 
 
 ## Challenges & Solutions
 
-| Challenge | Solution |
-| --- | --- |
-| High-dimensional outliers | Applied RobustScaler instead of StandardScaler |
-| Choosing optimal k | Used Elbow Method + Silhouette Analysis |
-| Comparing 7+ methods fairly | Standardized evaluation with Silhouette Score |
+| Challenge                   | Solution                                       |
+| --------------------------- | ---------------------------------------------- |
+| High-dimensional outliers   | Applied RobustScaler instead of StandardScaler |
+| Choosing optimal k          | Used Elbow Method + Silhouette Analysis        |
+| Comparing 7+ methods fairly | Standardized evaluation with Silhouette Score  |
 
 ## Future Improvements
 

@@ -18,25 +18,28 @@ This repository serves as a **learning portfolio** of various machine learning i
 
 ## Tech Stack & Tools
 
-| Tool | Purpose |
-|------|---------|
-| Python | Core programming language |
-| Scikit-learn | ML algorithms and evaluation |
-| Pandas & NumPy | Data handling |
-| Matplotlib & Seaborn | Visualization |
-| Jupyter Notebook | Implementation environment |
+| Tool                 | Purpose                      |
+| -------------------- | ---------------------------- |
+| Python               | Core programming language    |
+| Scikit-learn         | ML algorithms and evaluation |
+| Pandas & NumPy       | Data handling                |
+| Matplotlib & Seaborn | Visualization                |
+| Jupyter Notebook     | Implementation environment   |
 
 ## Topics Covered
 
 ### Supervised Learning
+
 - **Classification:** Logistic Regression, Decision Trees, Random Forest, SVM, KNN
 - **Regression:** Linear Regression, Polynomial Regression, Ridge/Lasso
 
 ### Unsupervised Learning
+
 - **Clustering:** K-Means, Hierarchical Clustering
 - **Dimensionality Reduction:** PCA
 
 ### Model Evaluation
+
 - Cross-validation techniques
 - Confusion matrix analysis
 - ROC curves and AUC scores

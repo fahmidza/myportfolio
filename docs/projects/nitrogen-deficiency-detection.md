@@ -24,14 +24,14 @@ Nitrogen deficiency is one of the most common nutritional disorders in rice cult
 
 ## Tech Stack & Tools
 
-| Tool | Purpose |
-|------|---------|
-| PyTorch | Deep learning framework |
+| Tool            | Purpose                      |
+| --------------- | ---------------------------- |
+| PyTorch         | Deep learning framework      |
 | EfficientNet_B4 | Pre-trained CNN architecture |
-| Streamlit | Web application deployment |
-| Python | Core programming language |
-| Pillow (PIL) | Image processing |
-| Scikit-learn | Evaluation metrics |
+| Streamlit       | Web application deployment   |
+| Python          | Core programming language    |
+| Pillow (PIL)    | Image processing             |
+| Scikit-learn    | Evaluation metrics           |
 
 ## Dataset Description
 
@@ -44,25 +44,29 @@ Nitrogen deficiency is one of the most common nutritional disorders in rice cult
 ## Methodology & Approach
 
 ### 1. Data Preprocessing
+
 - Resized all images to **100×100 pixels** for uniformity
 - Normalized pixel values for model input
 - Split into **80% training / 20% holdout**
 
 ### 2. Model Architecture
+
 - **Base model:** EfficientNet_B4 (pre-trained on ImageNet)
 - **Strategy:** Transfer learning with fine-tuning
 - Modified final classification layer for 4-class output
 
 ### 3. Training Configuration
-| Parameter | Value |
-|-----------|-------|
-| Epochs | 20 |
-| Batch Size | 16 |
-| Optimizer | Adam |
+
+| Parameter     | Value |
+| ------------- | ----- |
+| Epochs        | 20    |
+| Batch Size    | 16    |
+| Optimizer     | Adam  |
 | Learning Rate | 0.001 |
-| Split | 80/20 |
+| Split         | 80/20 |
 
 ### 4. Deployment
+
 - Built predictor function for batch evaluation
 - Created Streamlit web app for single-image prediction
 - Deployed to Streamlit Cloud for public access
@@ -71,17 +75,19 @@ Nitrogen deficiency is one of the most common nutritional disorders in rice cult
 
 ### Model Performance
 
-| Metric | Training | Holdout |
-|--------|----------|---------|
-| **F1-Score** | 97.3% | **95.5%** |
+| Metric       | Training | Holdout   |
+| ------------ | -------- | --------- |
+| **F1-Score** | 97.3%    | **95.5%** |
 
 ### Key Findings
+
 - **95.5% F1-score** on holdout set demonstrates strong generalization
 - Model successfully classifies all 4 nitrogen deficiency levels
 - Eliminates human judgment variability in LCC assessments
 - Deployed app enables real-time predictions from any device
 
 ### Impact
+
 - Farmers can upload a photo and receive instant nitrogen deficiency diagnosis
 - Reduces dependency on trained agricultural extension workers
 - Enables data-driven fertilizer application decisions
@@ -102,11 +108,11 @@ streamlit run streamlit-app.py
 
 ## Challenges & Solutions
 
-| Challenge | Solution |
-|-----------|----------|
-| Limited dataset diversity | Applied data augmentation and transfer learning |
-| Class imbalance across deficiency levels | Stratified splitting and class-weighted loss |
-| Real-world deployment | Streamlit Cloud for easy, free hosting |
+| Challenge                                | Solution                                        |
+| ---------------------------------------- | ----------------------------------------------- |
+| Limited dataset diversity                | Applied data augmentation and transfer learning |
+| Class imbalance across deficiency levels | Stratified splitting and class-weighted loss    |
+| Real-world deployment                    | Streamlit Cloud for easy, free hosting          |
 
 ## Future Improvements
 
