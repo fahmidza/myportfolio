@@ -35,11 +35,18 @@ collections:
     label_singular: "Blog Post"
     folder: "blog"
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    summary: "{{title}} — {{commit_date}}"
+    slug: "{{slug}}"
+    summary: "{{title}}"
     sortable_fields:
-      fields: ["title", "commit_date"]
+      fields: ["title", "date"]
     fields:
+      - label: "Publish Date"
+        name: "date"
+        widget: "datetime"
+        format: "YYYY-MM-DD"
+        date_format: "YYYY-MM-DD"
+        time_format: false
+
       - label: "Slug (URL)"
         name: "slug"
         widget: "string"
@@ -70,13 +77,6 @@ collections:
     slug: "{{slug}}"
     summary: "{{title}}"
     fields:
-      - label: "Sidebar Position"
-        name: "sidebar_position"
-        widget: "number"
-        value_type: "int"
-        min: 1
-        required: false
-
       - label: "Title"
         name: "title"
         widget: "string"
@@ -117,12 +117,6 @@ collections:
         label: "About Me"
         file: "docs/about.md"
         fields:
-          - label: "Sidebar Position"
-            name: "sidebar_position"
-            widget: "number"
-            value_type: "int"
-            default: 99
-
           - label: "Title"
             name: "title"
             widget: "string"

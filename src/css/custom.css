@@ -73,7 +73,7 @@
   --color-surface-elevated: #1e293b;
   --color-text-primary: #f1f5f9;
   --color-text-secondary: #94a3b8;
-  --color-border: #1e293b;
+  --color-border: rgba(255, 255, 255, 0.15);
 
   --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -2px rgba(0, 0, 0, 0.2);
   --card-shadow-hover: 0 20px 40px -5px rgba(6, 182, 212, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
@@ -82,12 +82,14 @@
 /* ---- Global Styles ---- */
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
   font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 /* ---- Navbar ---- */
@@ -930,4 +932,59 @@ main {
 .project-hero-active+div h1:first-of-type,
 .project-hero-active~h1:first-of-type {
   display: none;
+}
+
+/* --- Konfigurasi Google Translate --- */
+
+/* Sembunyikan banner "Google Translate" yang muncul di atas layar */
+.goog-te-banner-frame.skiptranslate {
+  display: none !important;
+}
+
+/* Cegah body tergeser ke bawah oleh banner */
+body {
+  top: 0px !important;
+}
+
+/* Modifikasi tampilan container di navbar agar rapi */
+.google-translate-container {
+  display: flex;
+  align-items: center;
+  margin-right: 12px;
+}
+
+/* Styling dropdown button google translate */
+.goog-te-gadget {
+  font-family: var(--ifm-font-family-base) !important;
+  color: transparent !important; /* menyembunyikan teks 'Powered by Google' */
+}
+.goog-te-gadget .goog-te-combo {
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: 1px solid var(--color-border) !important;
+  background-color: var(--color-surface-elevated) !important;
+  color: var(--color-text-primary) !important;
+  font-family: var(--ifm-font-family-base) !important;
+  font-size: 0.85rem;
+  margin: 0;
+  cursor: pointer;
+  outline: none;
+}
+
+/* Sembunyikan ikon Google Translate di dalam select jika muncul */
+.goog-te-gadget img {
+  display: none !important;
+}
+
+/* ---- Navbar Icons ---- */
+.navbar-icon {
+  width: 20px;
+  height: 20px;
+  vertical-align: -4px;
+  margin-right: 6px;
+  object-fit: contain;
+}
+
+[data-theme='dark'] .github-icon {
+  filter: invert(1) brightness(2);
 }

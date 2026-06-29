@@ -60,7 +60,38 @@ async function createConfig() {
     ],
 
     plugins: [
-      './src/plugins/plugin-projects-data'
+      './src/plugins/plugin-projects-data',
+      function googleTranslatePlugin() {
+        return {
+          name: 'google-translate-plugin',
+          injectHtmlTags() {
+            return {
+              headTags: [
+                {
+                  tagName: 'script',
+                  attributes: {
+                    type: 'text/javascript',
+                    src: '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit',
+                  },
+                },
+                {
+                  tagName: 'script',
+                  attributes: { type: 'text/javascript' },
+                  innerHTML: `
+                    function googleTranslateElementInit() {
+                      new google.translate.TranslateElement({
+                        pageLanguage: 'en',
+                        includedLanguages: 'en,id',
+                        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+                      }, 'google_translate_element');
+                    }
+                  `,
+                },
+              ],
+            };
+          },
+        };
+      },
     ],
 
     themeConfig:
@@ -90,13 +121,18 @@ async function createConfig() {
             { to: '/blog', label: 'Blog & Activities', position: 'left' },
             { to: '/docs/about', label: 'About Me', position: 'left' },
             {
+              type: 'html',
+              position: 'right',
+              value: '<div id="google_translate_element" class="google-translate-container"></div>',
+            },
+            {
               href: 'https://github.com/fahmidza',
-              html: '<img src="https://static.vecteezy.com/system/resources/previews/016/833/872/non_2x/github-logo-git-hub-icon-on-white-background-free-vector.jpg" alt="GitHub" style="width:20px; height:20px; vertical-align:-4px; margin-right:6px; mix-blend-mode: multiply;" /> GitHub',
+              html: '<img src="https://cdn-icons-png.flaticon.com/512/3291/3291667.png" alt="GitHub" class="navbar-icon github-icon" /> GitHub',
               position: 'right',
             },
             {
               href: 'https://www.linkedin.com/in/dzulfahmidzakiaahmad/',
-              html: '<img src="https://img.magnific.com/premium-vector/square-linkedin-logo-isolated-white-background_469489-892.jpg?w=360" alt="LinkedIn" style="width:20px; height:20px; vertical-align:-4px; margin-right:6px; mix-blend-mode: multiply;" /> LinkedIn',
+              html: '<img src="https://static.vecteezy.com/system/resources/thumbnails/018/930/587/small/linkedin-logo-linkedin-icon-transparent-free-png.png" alt="LinkedIn" class="navbar-icon linkedin-icon" /> LinkedIn',
               position: 'right',
             },
           ],
