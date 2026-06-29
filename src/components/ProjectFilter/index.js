@@ -159,9 +159,6 @@ export default function ProjectFilter() {
                 />
               </div>
               <div className={`card__header ${styles.cardHeader}`}>
-                <div style={{ fontSize: '0.85rem', color: 'var(--ifm-color-emphasis-600)', marginBottom: '0.25rem' }}>
-                  {new Date(project.date).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}
-                </div>
                 <h3 className={styles.cardTitle}>{project.title}</h3>
               </div>
               <div className={`card__body ${styles.cardBody}`}>
