@@ -23,6 +23,7 @@ export default function ProjectHero() {
   const title = metadata.title || 'Project';
   const description = metadata.description || '';
   const category = frontMatter.category || '';
+  const date = frontMatter.date || '1970-01-01';
   const tags = frontMatter.tags || [];
 
   // Hide the default markdown h1 to avoid duplicate titles
@@ -51,6 +52,9 @@ export default function ProjectHero() {
 
       <div className={styles.heroContent}>
         <h1 className={styles.heroTitle}>{title}</h1>
+        <div style={{ fontSize: '1.1rem', color: 'rgba(255,255,255,0.8)', marginBottom: '1rem', marginTop: '-0.5rem' }}>
+          📅 {new Date(date).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
+        </div>
         {description && (
           <p className={styles.heroDescription}>{description}</p>
         )}

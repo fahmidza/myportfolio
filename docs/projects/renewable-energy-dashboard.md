@@ -2,6 +2,7 @@
 category: dashboardss
 sidebar_position: 2
 title: Renewable Energy Dashboard
+date: 2024-01-01
 description: Analytical dashboard exploring renewable energy potential across Indonesian provinces.
 ---
 

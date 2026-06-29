@@ -44,8 +44,6 @@ export default function ProjectFilter() {
 
   const filteredProjects = useMemo(() => {
     return projects.filter((project) => {
-      // Must include ALL selected tags (or ANY? Let's do ANY for broader results, or ALL for strict filtering.
-      // Usually multiselect means ANY (OR logic), but sometimes ALL (AND logic). Let's use ANY for tags.
       if (activeTags.length > 0) {
         if (!project.tags?.some(tag => activeTags.includes(tag))) {
           return false;
@@ -62,7 +60,7 @@ export default function ProjectFilter() {
         }
       }
       return true;
-    });
+    }).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
   }, [projects, searchQuery, activeTags]);
 
   const displayedTags = useMemo(() => {
@@ -161,6 +159,9 @@ export default function ProjectFilter() {
                 />
               </div>
               <div className={`card__header ${styles.cardHeader}`}>
+                <div style={{ fontSize: '0.85rem', color: 'var(--ifm-color-emphasis-600)', marginBottom: '0.25rem' }}>
+                  {new Date(project.date).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}
+                </div>
                 <h3 className={styles.cardTitle}>{project.title}</h3>
               </div>
               <div className={`card__body ${styles.cardBody}`}>

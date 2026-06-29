@@ -2,6 +2,7 @@
 category: "data-science"
 sidebar_position: 3
 title: "Electric Vehicle Sentiment Analysis"
+date: 2024-01-01
 description: "Sentiment analysis of public opinion on electric vehicles using NLP techniques."
 ---
 

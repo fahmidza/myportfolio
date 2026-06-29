@@ -2,6 +2,7 @@
 category: web-apps
 sidebar_position: 1
 title: SADAR — Fraud Prevention
+date: 2024-01-01
 description: Full-stack digital fraud prevention application with suspicious URL detection, built as a DBS Foundation capstone project.
 ---
 

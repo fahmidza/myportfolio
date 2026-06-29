@@ -37,7 +37,6 @@ async function createConfig() {
         ({
           docs: {
             sidebarPath: './sidebars.js',
-            editUrl: 'https://github.com/fahmidza/portfolio/tree/main/',
             remarkPlugins: [remarkMath],
             rehypePlugins: [rehypeKatex],
           },
@@ -48,7 +47,6 @@ async function createConfig() {
             postsPerPage: 5,
             blogSidebarTitle: 'Recent Posts',
             blogSidebarCount: 'ALL',
-            editUrl: 'https://github.com/fahmidza/portfolio/tree/main/',
             remarkPlugins: [remarkMath],
             rehypePlugins: [rehypeKatex],
           },

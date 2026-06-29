@@ -2,6 +2,7 @@
 category: "data-science"
 sidebar_position: 4
 title: "Twitter Disability Sentiment Analysis"
+date: 2024-01-01
 description: "Crawling 4,500+ tweets and analyzing public sentiment on disability issues in Indonesia."
 ---
 

@@ -2,6 +2,7 @@
 category: "data-science"
 sidebar_position: 2
 title: "SARIMA Time Series Forecasting"
+date: 2024-01-01
 description: "Time series analysis and SARIMA-based forecasting for seasonal data patterns."
 ---
 

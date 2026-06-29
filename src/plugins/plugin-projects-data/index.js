@@ -99,6 +99,7 @@ module.exports = function (context, options) {
           title: data.title || file.replace(/\.mdx?$/, ''),
           description: data.description || '',
           category: data.category || 'Other',
+          date: data.date || '1970-01-01',
           tags: Array.isArray(data.tags) ? data.tags : [],
           images: autoImages,
           permalink: `/portfolio/docs/projects/${file.replace(/\.mdx?$/, '')}`,

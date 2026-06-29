@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 title: E-commerce Business Dashboard
+date: 2024-01-01
 description: Interactive business intelligence dashboard analyzing e-commerce performance metrics and revenue trends.
 tags:
   - Dashboard
