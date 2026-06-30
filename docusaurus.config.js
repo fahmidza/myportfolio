@@ -146,8 +146,9 @@ async function createConfig() {
               position: 'right',
             },
             {
-              href: siteSettings.resume_pdf ? encodeURI(siteSettings.resume_pdf) : '#',
-              html: '<svg class="navbar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style="vertical-align: middle;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> <span style="vertical-align: middle;">Resume</span>',
+              href: '#',
+              className: 'resume-popup-trigger-wrapper',
+              html: `<span class="resume-popup-trigger" data-resume-url="${siteSettings.resume_pdf ? encodeURI(siteSettings.resume_pdf) : ''}" style="display:flex; align-items:center; cursor:pointer;"><svg class="navbar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style="vertical-align: middle;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg> <span style="vertical-align: middle; margin-left: 4px;">Resume</span></span>`,
               position: 'right',
             },
           ],
@@ -189,7 +190,7 @@ async function createConfig() {
                   ],
                 },
           ],
-          copyright: `© ${new Date().getFullYear()} Dzulfahmi Dzakia Ahmad. Built with Docusaurus.`,
+          copyright: `© ${new Date().getFullYear()} Dzulfahmi Dzakia Ahmad. Built with Docusaurus & AI.`,
         },
         prism: {
           theme: require('prism-react-renderer').themes.github,

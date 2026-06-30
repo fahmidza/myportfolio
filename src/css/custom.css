@@ -1037,3 +1037,127 @@ body {
   max-height: 35vh;
   overflow-y: auto;
 }
+
+/* =======================================================
+   Resume PDF Modal Styles
+======================================================= */
+.resume-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.2s ease-in-out;
+  overscroll-behavior: contain;
+  touch-action: none;
+}
+
+.resume-modal-content {
+  background-color: #ffffff; /* Explicit white for light mode */
+  width: 90vw;
+  max-width: 1000px;
+  height: 90vh;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  touch-action: auto;
+}
+
+[data-theme='dark'] .resume-modal-content {
+  background-color: #1b1b1d;
+}
+
+.resume-modal-header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0.5rem 0.5rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  background-color: #f5f6f7; /* Light mode header background */
+}
+
+[data-theme='dark'] .resume-modal-header {
+  background-color: #242526;
+}
+
+.resume-modal-header h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: var(--ifm-font-color-base);
+}
+
+.resume-modal-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.resume-modal-btn {
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  text-decoration: none !important;
+  display: inline-flex;
+  align-items: center;
+}
+
+.resume-download-btn {
+  background-color: var(--ifm-color-primary);
+  color: #fff !important;
+}
+
+.resume-download-btn:hover {
+  background-color: var(--ifm-color-primary-dark);
+  color: #fff !important;
+  transform: translateY(-1px);
+}
+
+.resume-close-btn {
+  background-color: var(--ifm-color-emphasis-200);
+  color: var(--ifm-font-color-base);
+}
+
+.resume-close-btn:hover {
+  background-color: var(--ifm-color-emphasis-300);
+}
+
+.resume-modal-body {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  background-color: #525659; /* Default PDF viewer background */
+}
+
+.resume-modal-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (max-width: 768px) {
+  .resume-modal-content {
+    width: 95vw;
+    height: 95vh;
+  }
+  .resume-modal-header h3 {
+    font-size: 1.1rem;
+  }
+}
