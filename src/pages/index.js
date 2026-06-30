@@ -27,22 +27,28 @@ function HeroSection() {
   const [isDeleting, setIsDeleting] = useState(false);
   
   useEffect(() => {
-    let typeSpeed = isDeleting ? 50 : 100;
-    
+    let timeout;
+
     if (!isDeleting && currentText === roles[currentRoleIndex]) {
-      typeSpeed = 2000; // Pause at end of typing
-      setIsDeleting(true);
+      // Pause at the end of typing
+      timeout = setTimeout(() => {
+        setIsDeleting(true);
+      }, 2000); // 2 second delay
     } else if (isDeleting && currentText === '') {
-      setIsDeleting(false);
-      setCurrentRoleIndex((prev) => (prev + 1) % roles.length);
-      typeSpeed = 500; // Pause before typing next word
+      // Pause before typing next word
+      timeout = setTimeout(() => {
+        setIsDeleting(false);
+        setCurrentRoleIndex((prev) => (prev + 1) % roles.length);
+      }, 500);
+    } else {
+      // Typing or deleting characters
+      const typeSpeed = isDeleting ? 50 : 100;
+      timeout = setTimeout(() => {
+        setCurrentText(
+          roles[currentRoleIndex].substring(0, currentText.length + (isDeleting ? -1 : 1))
+        );
+      }, typeSpeed);
     }
-    
-    const timeout = setTimeout(() => {
-      setCurrentText(
-        roles[currentRoleIndex].substring(0, currentText.length + (isDeleting ? -1 : 1))
-      );
-    }, typeSpeed);
     
     return () => clearTimeout(timeout);
   }, [currentText, isDeleting, currentRoleIndex, roles]);
