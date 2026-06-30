@@ -57,8 +57,6 @@ function ResumeModal() {
     <div 
       className="resume-modal-overlay" 
       onClick={() => setIsOpen(false)}
-      onWheel={(e) => e.stopPropagation()}
-      onTouchMove={(e) => e.stopPropagation()}
     >
       <div className="resume-modal-content" onClick={(e) => e.stopPropagation()}>
         <div className="resume-modal-header">

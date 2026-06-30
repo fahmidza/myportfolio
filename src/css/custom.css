@@ -716,11 +716,11 @@ article h2 {
 }
 
 /* ---- Responsive ---- */
-@media (max-width: 768px) {
+@media (max-width: 996px) {
   .hero-container {
     grid-template-columns: 1fr;
     text-align: center;
-    gap: 3rem;
+    gap: 4rem;
   }
 
   .hero-content-left {
@@ -739,51 +739,87 @@ article h2 {
 
   .hero-content-right {
     order: 1;
+    margin-top: 2rem;
   }
 
   .projects-grid {
     grid-template-columns: 1fr;
   }
+}
 
-  .portfolio-section {
-    padding: 3rem 1.25rem;
+@media (max-width: 768px) {
+  .hero-image-wrapper {
+    width: 260px;
+    height: 260px;
+  }
+
+  .hero-title {
+    font-size: 2.2rem;
+  }
+
+  /* Shrink text pills */
+  .floating-pill {
+    font-size: 0.75rem;
+    padding: 0.35rem 0.75rem;
+  }
+
+  /* Turn tool pills into small circles without text */
+  .tool-pill-name {
+    display: none;
+  }
+  .tool-pill {
+    width: 38px;
+    height: 38px;
+    padding: 0;
+    justify-content: center;
+    border-radius: 50%;
+  }
+  .tool-pill-icon {
+    margin: 0;
+    width: 20px;
+    height: 20px;
+  }
+
+  /* Reposition Text Pills (Corners) */
+  .text-pill-0 { top: 5%; left: -15%; }
+  .text-pill-1 { top: 5%; right: -15%; }
+  .text-pill-2 { bottom: 5%; left: -15%; }
+  .text-pill-3 { bottom: 5%; right: -15%; }
+
+  /* Reposition ALL 12 Tool Pills (Constellation around the image) */
+  .tool-pill-0 { top: -15%; left: 45%; }     /* 12:00 - Top Center */
+  .tool-pill-1 { top: -10%; right: 15%; }    /* 1:00 - Above Data Science */
+  .tool-pill-2 { top: 25%; right: -25%; }    /* 2:00 - Below Data Science */
+  .tool-pill-3 { top: 45%; right: -30%; }    /* 3:00 - Right Center */
+  .tool-pill-4 { bottom: 25%; right: -25%; } /* 4:00 - Above Statistics */
+  .tool-pill-5 { bottom: -10%; right: 15%; } /* 5:00 - Below Statistics */
+  .tool-pill-6 { bottom: -15%; left: 45%; }  /* 6:00 - Bottom Center */
+  .tool-pill-7 { bottom: -10%; left: 15%; }  /* 7:00 - Below Analytics */
+  .tool-pill-8 { bottom: 25%; left: -25%; }  /* 8:00 - Above Analytics */
+  .tool-pill-9 { top: 45%; left: -30%; }     /* 9:00 - Left Center */
+  .tool-pill-10 { top: 25%; left: -25%; }    /* 10:00 - Below Machine Learning */
+  .tool-pill-11 { top: -10%; left: 15%; }    /* 11:00 - Above Machine Learning */
+  
+  .tool-pill-6, .tool-pill-7, .tool-pill-8, .tool-pill-9, .tool-pill-10, .tool-pill-11 {
+    display: flex; /* Restore visibility */
   }
 }
 
 @media (max-width: 480px) {
   .hero-image-wrapper {
-    width: 240px;
-    height: 240px;
+    width: 200px;
+    height: 200px;
   }
-
-  .hero-title {
-    font-size: 2rem;
-  }
-
+  
+  /* Give them a bit more outward push on very small screens, 
+     but scale text to avoid overflow */
   .floating-pill {
-    font-size: 0.75rem;
-    padding: 0.4rem 0.8rem;
+    transform: scale(0.9);
   }
-
-  .pill-1 {
-    top: -5%;
-    left: -5%;
-  }
-
-  .pill-2 {
-    top: 20%;
-    right: -15%;
-  }
-
-  .pill-3 {
-    bottom: 10%;
-    left: -5%;
-  }
-
-  .pill-4 {
-    bottom: -10%;
-    right: 0%;
-  }
+  .text-pill-0 { top: 2%; left: -18%; }
+  .text-pill-1 { top: 2%; right: -18%; }
+  .text-pill-2 { bottom: 2%; left: -18%; }
+  .text-pill-3 { bottom: 2%; right: -18%; }
 }
 
 /* ---- Admonition Customization ---- */
@@ -1054,8 +1090,6 @@ body {
   align-items: center;
   justify-content: center;
   animation: fadeIn 0.2s ease-in-out;
-  overscroll-behavior: contain;
-  touch-action: none;
 }
 
 .resume-modal-content {
@@ -1069,7 +1103,6 @@ body {
   flex-direction: column;
   overflow: hidden;
   border: 1px solid var(--ifm-color-emphasis-200);
-  touch-action: auto;
 }
 
 [data-theme='dark'] .resume-modal-content {
