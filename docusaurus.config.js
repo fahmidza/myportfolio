@@ -67,6 +67,9 @@ async function createConfig() {
       ],
     ],
 
+    clientModules: [
+      './src/clientModules/routeObserver.js',
+    ],
     plugins: [
       './src/plugins/plugin-projects-data',
       function googleTranslatePlugin() {
