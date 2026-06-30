@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import siteSettings from '../../data/settings.json';
+import homeSettings from '../../data/home.json';
 
 const tools = [
   { name: 'Python', icon: 'https://cdn.simpleicons.org/python/3776AB' },
@@ -21,7 +21,7 @@ const tools = [
 
 // === Components ===
 function HeroSection() {
-  const roles = siteSettings?.hero_roles || ["Data Enthusiast"];
+  const roles = homeSettings?.hero_roles || ["Data Enthusiast"];
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
   const [currentText, setCurrentText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
@@ -56,7 +56,7 @@ function HeroSection() {
             {currentText}<span className="typewriter-cursor">|</span>
           </h2>
           <p className="hero-description">
-            {siteSettings?.hero_description || "Data Scientist & Statistician bridging the gap between raw data and real-world impact. I turn complex datasets into actionable insights through statistical modeling, machine learning, and compelling visualizations."}
+            {homeSettings?.hero_description || "Data Scientist & Statistician bridging the gap between raw data and real-world impact. I turn complex datasets into actionable insights through statistical modeling, machine learning, and compelling visualizations."}
           </p>
           <div className="hero-cta-group">
             <Link to="/docs/projects" className="hero-cta hero-cta--primary">

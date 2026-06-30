@@ -6,9 +6,9 @@ async function createConfig() {
   // Read CMS site settings
   let siteSettings = {};
   try {
-    siteSettings = require('./data/settings.json');
+    siteSettings = require('./data/site.json');
   } catch (e) {
-    console.warn("No data/settings.json found.");
+    console.warn("No data/site.json found.");
   }
 
   // Dynamically import ESM-only plugins for math equation support
