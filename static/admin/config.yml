@@ -90,6 +90,21 @@ collections:
         name: "body"
         widget: "markdown"
 
+      - label: "📎 Report Files (Lampiran)"
+        name: "report_files"
+        widget: "list"
+        required: false
+        hint: "Upload file laporan, kode, atau dokumen pendukung proyek ini. File HTML & PDF akan otomatis di-embed di halaman proyek."
+        fields:
+          - label: "Label"
+            name: "label"
+            widget: "string"
+            hint: "Judul file, misalnya 'Laporan Analisis Clustering' atau 'Source Code Python'"
+          - label: "File"
+            name: "file"
+            widget: "file"
+            hint: "Upload file (HTML, PDF, ZIP, CSV, PY, dll.)"
+
   - name: "projects_intro"
     label: "🚀 Projects (Welcome Text)"
     files:

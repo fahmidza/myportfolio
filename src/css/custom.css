@@ -737,6 +737,98 @@ body {
   box-shadow: var(--card-shadow-hover);
 }
 
+/* ---- Project Attachments (Report Files) ---- */
+.project-attachments {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 2px solid var(--color-border);
+}
+
+.project-attachments__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--ifm-heading-color);
+}
+
+.project-attachments__list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.project-attachment-item__label {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: var(--ifm-heading-color);
+}
+
+.project-attachment-item__embed {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--card-shadow);
+  background: var(--color-surface);
+}
+
+.project-attachment-item__iframe {
+  width: 100%;
+  height: 800px;
+  border: none;
+  display: block;
+}
+
+.project-attachment-item__download {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  box-shadow: var(--card-shadow);
+  text-decoration: none;
+  color: var(--ifm-font-color-base);
+  transition: all 0.2s ease;
+}
+
+.project-attachment-item__download:hover {
+  box-shadow: var(--card-shadow-hover);
+  border-color: var(--ifm-color-primary);
+  transform: translateY(-2px);
+  text-decoration: none;
+  color: var(--ifm-font-color-base);
+}
+
+.project-attachment-item__download-icon {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.project-attachment-item__download-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.project-attachment-item__download-text strong {
+  font-size: 1rem;
+}
+
+.project-attachment-item__download-text small {
+  font-size: 0.8rem;
+  opacity: 0.6;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+@media (max-width: 768px) {
+  .project-attachment-item__iframe {
+    height: 500px;
+  }
+}
+
 /* Remove default padding from the menu to fix the top gap */
 .theme-doc-sidebar-menu {
   padding-top: 0 !important;
