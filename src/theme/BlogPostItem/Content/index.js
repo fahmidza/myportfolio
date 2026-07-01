@@ -15,8 +15,8 @@ export default function BlogPostItemContent({children, className}) {
   try {
     const { blogDataMap } = usePluginData('plugin-blog-data');
     if (metadata?.source) {
-      // metadata.source looks like '@site/blog/2023-01-01-my-post.md'
-      const filename = metadata.source.split('/').pop();
+      // metadata.source looks like '@site/blog/2023-01-01-my-post.md' (or with backslashes on Windows)
+      const filename = metadata.source.replace(/\\/g, '/').split('/').pop();
       if (blogDataMap && blogDataMap[filename]) {
         images = blogDataMap[filename].images || [];
       }
@@ -34,7 +34,7 @@ export default function BlogPostItemContent({children, className}) {
           </div>
         )}
         <p style={{ color: 'var(--color-text-secondary)', lineHeight: '1.6', fontSize: '0.95rem', marginBottom: '1rem' }}>
-          {frontMatter.description || 'Click below to read the full article.'}
+          {frontMatter.description || metadata.description || 'Click below to read the full article.'}
         </p>
       </div>
     );
