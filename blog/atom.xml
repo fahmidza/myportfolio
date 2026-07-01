@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://fahmidza.github.io/portfolio/blog</id>
+    <title>Dzulfahmi Dzakia Ahmad Blog</title>
+    <updated>2026-07-01T00:00:00.000Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://fahmidza.github.io/portfolio/blog"/>
+    <subtitle>Dzulfahmi Dzakia Ahmad Blog</subtitle>
+    <icon>https://fahmidza.github.io/portfolio/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[tesblog]]></title>
+        <id>https://fahmidza.github.io/portfolio/blog/tesblog</id>
+        <link href="https://fahmidza.github.io/portfolio/blog/tesblog"/>
+        <updated>2026-07-01T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[tes]]></summary>
+        <content type="html"><![CDATA[<p>tes</p>
+<p>input</p>
+<p><img decoding="async" loading="lazy" src="https://fahmidza.github.io/portfolio/assets/images/20260701-135544-7b7750f6f5e72a7bfcd140e25ae38ce1.png" width="790" height="427" class="img_ev3q"></p><div class="project-attachments"><div class="project-attachments__header"><h2 id="attachments" class="project-attachments__title">Attachments</h2></div><div class="project-attachments__list"><div class="project-attachment-item"><a href="https://fahmidza.github.io/portfolio/img/pasted-image-1782823613962.png" download="" class="project-attachment-item__download" target="_blank" rel="noopener noreferrer"><span class="project-attachment-item__download-icon">📥</span><span class="project-attachment-item__download-text"><strong>lmap</strong><small>.<!-- -->png<!-- --> file</small></span></a></div></div></div>]]></content>
+    </entry>
+</feed>
