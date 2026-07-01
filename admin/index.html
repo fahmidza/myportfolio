@@ -10,6 +10,315 @@
         window.location.replace(window.location.pathname + '/' + window.location.search + window.location.hash);
       }
     </script>
+
+    <!-- Custom: Collapse/Expand All Images in Markdown Editor -->
+    <style>
+      .cms-img-toolbar {
+        position: sticky;
+        bottom: 0;
+        z-index: 100;
+        display: flex;
+        gap: 6px;
+        align-items: center;
+        padding: 7px 12px;
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border-top: 1px solid #e0e0e6;
+        box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.06);
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        font-size: 12px;
+        color: #555;
+        user-select: none;
+        opacity: 0;
+        animation: cmsBarIn 0.25s ease 0.1s forwards;
+      }
+      @keyframes cmsBarIn {
+        to { opacity: 1; }
+      }
+      .cms-img-toolbar .cms-label {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        font-size: 12px;
+        font-weight: 500;
+        color: #666;
+        margin-right: 2px;
+      }
+      .cms-img-btn {
+        padding: 4px 12px;
+        border: 1px solid #d0d0d8;
+        border-radius: 6px;
+        background: #fff;
+        color: #333;
+        font-size: 11.5px;
+        font-family: inherit;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.15s ease;
+        line-height: 1.4;
+        white-space: nowrap;
+      }
+      .cms-img-btn:hover {
+        background: #eef0ff;
+        border-color: #a0a8e0;
+        color: #3b3fba;
+      }
+      .cms-img-btn:active {
+        transform: scale(0.96);
+      }
+      .cms-img-btn[data-action="collapse"] {
+        border-color: #d4a574;
+        color: #8b6914;
+      }
+      .cms-img-btn[data-action="collapse"]:hover {
+        background: #fef8f0;
+        border-color: #c89050;
+        color: #7a5c10;
+      }
+      .cms-img-count {
+        margin-left: auto;
+        font-size: 11px;
+        color: #999;
+        font-weight: 400;
+      }
+    </style>
+
+    <script>
+    // Custom Image Collapse/Expand Toolbar for Sveltia CMS
+    // Runs from <head> to survive SPA body replacement
+    (function() {
+      'use strict';
+
+      var INIT_DELAY = 3000;
+      var DEBOUNCE_MS = 400;
+      var toolbarRef = null;
+      var toolbarParent = null;
+      var observerStarted = false;
+
+      console.log('[CMS-ImageToolbar] Script loaded');
+
+      /**
+       * Find the correct editor pane — the scrollable container
+       * that actually contains image toggle buttons.
+       */
+      function findEditorPane() {
+        // Strategy 1: search all scrollable containers
+        var candidates = document.querySelectorAll('[scrollable="true"]');
+        for (var i = 0; i < candidates.length; i++) {
+          var pane = candidates[i];
+          var buttons = pane.querySelectorAll(
+            'button[aria-label="Collapse"], button[aria-label="Expand"]'
+          );
+          for (var j = 0; j < buttons.length; j++) {
+            if (buttons[j].textContent.includes('Image')) {
+              return pane;
+            }
+          }
+        }
+        // Strategy 2: find any Image button and walk up to scrollable parent
+        var allBtns = document.querySelectorAll('button[aria-label="Collapse"], button[aria-label="Expand"]');
+        for (var k = 0; k < allBtns.length; k++) {
+          if (allBtns[k].textContent.includes('Image')) {
+            var parent = allBtns[k].closest('[scrollable="true"]');
+            if (parent) return parent;
+            // If no scrollable parent, use the nearest ancestor with overflow
+            var el = allBtns[k].parentElement;
+            while (el && el !== document.body) {
+              var style = window.getComputedStyle(el);
+              if (style.overflowY === 'auto' || style.overflowY === 'scroll') {
+                return el;
+              }
+              el = el.parentElement;
+            }
+          }
+        }
+        return null;
+      }
+
+      /**
+       * Find all image toggle buttons inside any scrollable pane.
+       */
+      function findImageToggleButtons(pane) {
+        if (!pane) return [];
+        var allButtons = pane.querySelectorAll(
+          'button[aria-label="Collapse"], button[aria-label="Expand"]'
+        );
+        var imageButtons = [];
+        allButtons.forEach(function(btn) {
+          if ((btn.textContent || '').includes('Image')) {
+            imageButtons.push(btn);
+          }
+        });
+        return imageButtons;
+      }
+
+      /**
+       * Collapse or expand all image blocks.
+       */
+      function toggleAllImages(shouldCollapse) {
+        var pane = findEditorPane();
+        var buttons = findImageToggleButtons(pane);
+        var targetLabel = shouldCollapse ? 'Collapse' : 'Expand';
+
+        console.log('[CMS-ImageToolbar] Toggle:', shouldCollapse ? 'collapse' : 'expand', buttons.length, 'buttons');
+
+        buttons.forEach(function(btn) {
+          if (btn.getAttribute('aria-label') === targetLabel) {
+            btn.click();
+          }
+        });
+
+        setTimeout(updateToolbarCount, 300);
+      }
+
+      /**
+       * Update the toolbar count label.
+       */
+      function updateToolbarCount() {
+        if (!toolbarRef) return;
+        var pane = findEditorPane();
+        var buttons = findImageToggleButtons(pane);
+        var countEl = toolbarRef.querySelector('.cms-img-count');
+        if (countEl) {
+          var expanded = 0, collapsed = 0;
+          buttons.forEach(function(btn) {
+            if (btn.getAttribute('aria-label') === 'Collapse') expanded++;
+            else collapsed++;
+          });
+          var total = buttons.length;
+          if (total > 0) {
+            countEl.textContent = total + ' image' + (total !== 1 ? 's' : '') +
+              ' (' + expanded + ' open, ' + collapsed + ' closed)';
+          } else {
+            countEl.textContent = '';
+          }
+        }
+        toolbarRef.style.display = buttons.length > 0 ? 'flex' : 'none';
+      }
+
+      /**
+       * Create the sticky toolbar element.
+       */
+      function createToolbar() {
+        var bar = document.createElement('div');
+        bar.className = 'cms-img-toolbar';
+        bar.innerHTML =
+          '<span class="cms-label">\u{1F5BC}\uFE0F Images</span>' +
+          '<button class="cms-img-btn" data-action="expand">\u25BC Expand All</button>' +
+          '<button class="cms-img-btn" data-action="collapse">\u25B6 Collapse All</button>' +
+          '<span class="cms-img-count"></span>';
+
+        bar.addEventListener('click', function(e) {
+          var btn = e.target.closest('.cms-img-btn');
+          if (!btn) return;
+          toggleAllImages(btn.dataset.action === 'collapse');
+        });
+
+        return bar;
+      }
+
+      /**
+       * Main scan function.
+       */
+      function scan() {
+        var pane = findEditorPane();
+
+        if (!pane) {
+          // No editor pane with images — clean up toolbar
+          if (toolbarRef) {
+            removeToolbar();
+          }
+          return;
+        }
+
+        var buttons = findImageToggleButtons(pane);
+        console.log('[CMS-ImageToolbar] scan: pane found, buttons:', buttons.length);
+
+        if (buttons.length > 0) {
+          if (!toolbarRef || toolbarParent !== pane) {
+            removeToolbar();
+            toolbarRef = createToolbar();
+            toolbarParent = pane;
+            pane.appendChild(toolbarRef);
+            console.log('[CMS-ImageToolbar] Toolbar inserted!', buttons.length, 'images found');
+          }
+          updateToolbarCount();
+        } else {
+          if (toolbarRef) {
+            toolbarRef.style.display = 'none';
+          }
+        }
+      }
+
+      /**
+       * Remove toolbar from DOM.
+       */
+      function removeToolbar() {
+        if (toolbarRef && toolbarRef.parentNode) {
+          toolbarRef.parentNode.removeChild(toolbarRef);
+        }
+        toolbarRef = null;
+        toolbarParent = null;
+      }
+
+      /**
+       * Start the MutationObserver.
+       */
+      function startObserver() {
+        if (observerStarted) return;
+        observerStarted = true;
+
+        var timer = null;
+        var observer = new MutationObserver(function(mutations) {
+          // Skip mutations caused by our own toolbar
+          var dominated = mutations.every(function(m) {
+            return m.target.closest && m.target.closest('.cms-img-toolbar');
+          });
+          if (dominated) return;
+
+          clearTimeout(timer);
+          timer = setTimeout(scan, DEBOUNCE_MS);
+        });
+
+        observer.observe(document.documentElement, {
+          childList: true,
+          subtree: true
+        });
+
+        console.log('[CMS-ImageToolbar] MutationObserver started');
+      }
+
+      /**
+       * Initialize — called after delay.
+       */
+      function init() {
+        console.log('[CMS-ImageToolbar] Initializing...');
+        scan();
+        startObserver();
+        // Aggressive periodic check for the first 30 seconds, then slow down
+        var checkCount = 0;
+        var intervalId = setInterval(function() {
+          checkCount++;
+          scan();
+          // After 15 fast checks (every 2s = 30s), slow to every 5s
+          if (checkCount >= 15) {
+            clearInterval(intervalId);
+            setInterval(scan, 5000);
+          }
+        }, 2000);
+      }
+
+      // Use multiple strategies to ensure init runs
+      if (document.readyState === 'complete') {
+        setTimeout(init, INIT_DELAY);
+      } else {
+        window.addEventListener('load', function() {
+          setTimeout(init, INIT_DELAY);
+        });
+      }
+    })();
+    </script>
   </head>
   <body>
     <!-- Include Sveltia CMS -->
