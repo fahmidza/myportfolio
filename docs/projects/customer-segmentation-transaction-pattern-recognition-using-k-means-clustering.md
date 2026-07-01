@@ -32,26 +32,33 @@ Financial institutions hold massive amounts of transactional data but often lack
 - Applied One-Hot Encoding to categorical variables like.
 - Standardized numeric features using StandardScaler to handle outliers and ensure distance-based computations were unbiased.
 - Implemented Principal Component Analysis (PCA) to reduce the dataset's dimensionality down to 2 principal components, optimizing computational efficiency while retaining the most crucial data variance.
-
-**2. Modeling**
-
+  **2. Modeling**
 - Implemented the K-Means Clustering algorithm utilizing the Scikit-Learn library on the PCA-transformed dataset.
-- Executed an iterative modeling approach, systematically testing multiple scenarios for the number of clusters ($k$) to map data points into the most representative groups.
+- Executed an iterative modeling approach, systematically testing multiple scenarios for the number of clusters (k) to map data points into the most representative groups. Elbow and Silhoutte Score Methods is used to choose the optimal number of clusters.
+  **3. Evaluation**
 
-**3. Evaluation**
+![](/img/pasted-image-1782882598271.png)
 
-![](/img/pasted-image-1782823781026.png)
+![](/img/pasted-image-1782882609356.png)
 
 - Validated the quality of the segmentation mathematically by combining the Elbow Method (to measure distortion score) and the Silhouette Score.
-- The post-PCA evaluation revealed that $k=6$ was the absolute optimal number of clusters.
+
+![](/img/pasted-image-1782882912878.png)
+
+- The post-PCA evaluation revealed that k=6 was the absolute optimal number of clusters.
 - Achieved an outstanding final Silhouette Score of **0.917**, confirming highly cohesive internal groupings and strictly defined boundaries between the 6 clusters.
+
+![](/img/pasted-image-1782823781026.png)
 
 **4. Delivery**
 
 - Applied an inverse transform to the scaled mathematical metrics, reverting the data back to its original values to ensure the clusters were completely interpretable by business executives.
 - Developed comparative visualizations (Boxplots and Countplots) to profile the distinct characteristics of each cluster.
+
+![](/img/pasted-image-1782883066335.png)
+
 - Exported the finalized customer segmentation profiles into a structured CSV format ready for stakeholder integration and dashboarding.
 
 ### The Impact
 
-Successfully isolated the transaction records into 6 highly specific, actionable customer personas. By mathematically differentiating segments—such as "The Digital Adopter" (Online Debit Users) from "The Premium Traditional" (Branch Credit Users with high balances)—this analytical output eliminates intuition-based guesswork. It equips the business with a rigorous, quantitative framework to design precise customer retention strategies, accelerate digital channel adoption, and optimize premium product cross-selling.
+Successfully isolated the transaction records into 6 highly specific, actionable customer personas. By mathematically differentiating segments, such as "The Digital Adopter" (Online Debit Users) from "The Premium Traditional" (Branch Credit Users with high balances), this analytical output eliminates intuition-based guesswork. It equips the business with a rigorous, quantitative framework to design precise customer retention strategies, accelerate digital channel adoption, and optimize premium product cross-selling.
