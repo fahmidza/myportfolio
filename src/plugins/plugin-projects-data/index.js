@@ -80,7 +80,7 @@ module.exports = function (context, options) {
         let autoImages = [];
         const imgRegex = /!\[.*?\]\((.*?)\)|<img.*?src=["'](.*?)["']/g;
         let match;
-        while ((match = imgRegex.exec(content)) !== null && autoImages.length < 4) {
+        while ((match = imgRegex.exec(content)) !== null) {
           let imgPath = match[1] || match[2];
           if (imgPath.startsWith('/img/')) {
             imgPath = `/portfolio${imgPath}`;

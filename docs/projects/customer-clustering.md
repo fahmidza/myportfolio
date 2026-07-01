@@ -8,19 +8,19 @@ tags:
 category: dashboardss
 ---
 
-# Customer Transaction Clustering Analysis
+## Customer Transaction Clustering Analysis
 
 > Segmenting customers using 7 clustering methods to uncover transaction patterns and deliver strategic business recommendations.
 
-## Overview
+### Overview
 
 This project performs a comprehensive clustering analysis on customer transaction data, comparing **seven different clustering algorithms** to identify the most effective segmentation approach. The analysis reveals three distinct customer segments based on transaction behavior, geographic location, and city demographics.
 
-## Problem Statement
+### Problem Statement
 
 Businesses often struggle to understand the diverse behavioral patterns within their customer base. Without proper segmentation, marketing strategies remain generic and resource allocation becomes inefficient. This project addresses the need for **data-driven customer segmentation** to enable targeted business strategies.
 
-## Tech Stack & Tools
+### Tech Stack & Tools
 
 | Tool                 | Purpose                                 |
 | -------------------- | --------------------------------------- |
@@ -32,7 +32,7 @@ Businesses often struggle to understand the diverse behavioral patterns within t
 | Matplotlib & Seaborn | Visualization and EDA                   |
 | Jupyter Notebook     | Development environment                 |
 
-## Dataset Description
+### Dataset Description
 
 The dataset contains customer transaction records with features including:
 
@@ -45,20 +45,20 @@ Source: `data_clustering.xlsx`
 
 ![](/img/pasted-image-1782565851822.png)
 
-## Methodology & Approach
+### Methodology & Approach
 
-### 1. Exploratory Data Analysis
+#### 1. Exploratory Data Analysis
 
 - Statistical descriptives and distribution analysis
 - Missing value detection and handling
 - Correlation heatmaps and feature relationships
 
-### 2. Data Preprocessing
+#### 2. Data Preprocessing
 
 - **Outlier handling** using RobustScaler for robustness against extreme values
 - Feature scaling and transformation for clustering readiness
 
-### 3. Clustering Methods Applied
+#### 3. Clustering Methods Applied
 
 | #   | Method                      | Approach                           |
 | --- | --------------------------- | ---------------------------------- |
@@ -71,17 +71,17 @@ Source: `data_clustering.xlsx`
 | 7   | **Gaussian Mixture Model**  | Probabilistic distribution-based   |
 | 8   | **Deep Clustering**         | Autoencoder + K-Means hybrid       |
 
-### 4. Evaluation
+#### 4. Evaluation
 
 All models evaluated using **Silhouette Score** to measure cluster cohesion and separation.
 
-## Key Results & Insights
+### Key Results & Insights
 
-### Best Model: K-Medians Clustering
+#### Best Model: K-Medians Clustering
 
 **Silhouette Score: 0.742** — the highest among all methods tested.
 
-### Customer Segments Identified
+#### Customer Segments Identified
 
 | Cluster       | Profile           | Characteristics                             |
 | ------------- | ----------------- | ------------------------------------------- |
@@ -89,13 +89,13 @@ All models evaluated using **Silhouette Score** to measure cluster cohesion and 
 | **Cluster 2** | Regular Consumers | Medium transactions, large cities           |
 | **Cluster 3** | Premium Customers | High transaction values, metropolitan areas |
 
-### Strategic Recommendations
+#### Strategic Recommendations
 
 - **Cluster 1:** Focus on increasing transaction value through targeted promotions
 - **Cluster 2:** Strengthen loyalty through incentive programs and engagement
 - **Cluster 3:** Retain premium customers with exclusive services and VIP treatment
 
-## Challenges & Solutions
+### Challenges & Solutions
 
 | Challenge                   | Solution                                       |
 | --------------------------- | ---------------------------------------------- |
@@ -103,13 +103,13 @@ All models evaluated using **Silhouette Score** to measure cluster cohesion and 
 | Choosing optimal k          | Used Elbow Method + Silhouette Analysis        |
 | Comparing 7+ methods fairly | Standardized evaluation with Silhouette Score  |
 
-## Future Improvements
+### Future Improvements
 
 - Incorporate temporal transaction patterns for dynamic segmentation
 - Apply DBSCAN for density-based outlier-aware clustering
 - Build a real-time customer scoring dashboard
 - Add RFM (Recency, Frequency, Monetary) analysis layer
 
-## Links
+### Links
 
 - 🔗 [GitHub Repository](https://github.com/fahmidza/Analisis-Clustering-untuk-Data-Transaksi-Pelanggan)

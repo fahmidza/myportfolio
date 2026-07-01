@@ -12,18 +12,18 @@ report_files:
     file: /files/Clustering (1).html
 ---
 
-# Short Summary
+## Short Summary
 
 Developed an unsupervised machine learning model using Python to segment bank customer transactions. This project processed a raw financial dataset containing 16 features, reduced data dimensionality using Principal Component Analysis (PCA), and objectively identified customer behavior patterns. The resulting clusters provide a data-driven foundation for targeted marketing and personalized financial services.
 
-# The Challenge
+## The Challenge
 
 Financial institutions hold massive amounts of transactional data but often lack clear, historical labels defining their dominant customer profiles. Relying on manual assumptions for customer classification is highly inefficient and prone to bias. The primary challenge was to discover hidden patterns across multiple variables (such as transaction amount, customer age, account balance, and channel) and group them into business-meaningful segments to target financial products accurately.
 ![](/img/pasted-image-1782823522940.png)
 
-# Methodology & Execution
+## Methodology & Execution
 
-## 1. Data Preparation
+### 1. Data Preparation
 
 - Conducted Exploratory Data Analysis (EDA), such as visualization distribution data and correlation data, to understand the distribution of financial variables and confirmed the absence of duplicate or missing value![](/img/pasted-image-1782823583002.png)
 
@@ -59,6 +59,6 @@ Financial institutions hold massive amounts of transactional data but often lack
 
 - Exported the finalized customer segmentation profiles into a structured CSV format ready for stakeholder integration and dashboarding.
 
-### The Impact
+#### The Impact
 
 Successfully isolated the transaction records into 6 highly specific, actionable customer personas. By mathematically differentiating segments, such as "The Digital Adopter" (Online Debit Users) from "The Premium Traditional" (Branch Credit Users with high balances), this analytical output eliminates intuition-based guesswork. It equips the business with a rigorous, quantitative framework to design precise customer retention strategies, accelerate digital channel adoption, and optimize premium product cross-selling.

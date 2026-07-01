@@ -27,16 +27,29 @@ export default function ImageCarousel({ images, alt, className }) {
       ))}
       {images.length > 1 && (
         <div className={styles.carouselIndicators}>
-          {images.map((_, index) => (
-            <span
-              key={index}
-              className={`${styles.indicator} ${index === currentIndex ? styles.indicatorActive : ''}`}
+          {images.length > 5 ? (
+            <span 
+              className={styles.carouselCounter}
               onClick={(e) => {
                 e.preventDefault();
-                setCurrentIndex(index);
+                setCurrentIndex((prev) => (prev + 1) % images.length);
               }}
-            />
-          ))}
+              title="Next image"
+            >
+              {currentIndex + 1} / {images.length}
+            </span>
+          ) : (
+            images.map((_, index) => (
+              <span
+                key={index}
+                className={`${styles.indicator} ${index === currentIndex ? styles.indicatorActive : ''}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  setCurrentIndex(index);
+                }}
+              />
+            ))
+          )}
         </div>
       )}
     </div>

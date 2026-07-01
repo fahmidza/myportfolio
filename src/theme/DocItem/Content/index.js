@@ -45,6 +45,7 @@ function getFileExtension(filePath) {
 }
 
 function AttachmentItem({ item, index }) {
+  const [isExpanded, setIsExpanded] = useState(false);
   const ext = getFileExtension(item.file);
   const isEmbeddable = ['html', 'htm', 'pdf'].includes(ext);
   const resolvedUrl = useBaseUrl(item.file);
@@ -52,23 +53,48 @@ function AttachmentItem({ item, index }) {
   if (isEmbeddable) {
     return (
       <div className="project-attachment-item">
-        <h3 className="project-attachment-item__label">
-          {ext === 'pdf' ? '📄' : '🌐'} {item.label || `File ${index + 1}`}
-        </h3>
-        <div className="project-attachment-item__embed">
-          <iframe
-            src={resolvedUrl}
-            title={item.label || `Attachment ${index + 1}`}
-            className="project-attachment-item__iframe"
-            loading="lazy"
-            allowFullScreen
-          />
+        {/* Header bar: label + action buttons */}
+        <div className="project-attachment-item__header">
+          <h3 className="project-attachment-item__label">
+            {ext === 'pdf' ? '📄' : '🌐'} {item.label || `File ${index + 1}`}
+          </h3>
+          <div className="project-attachment-item__actions">
+            <a
+              href={resolvedUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="project-attachment-item__btn project-attachment-item__btn--outline"
+              title="Open in new tab"
+            >
+              ↗ Open
+            </a>
+            <button
+              className="project-attachment-item__btn project-attachment-item__btn--primary"
+              onClick={() => setIsExpanded(!isExpanded)}
+              aria-expanded={isExpanded}
+            >
+              {isExpanded ? '▲ Collapse' : '▼ Expand'}
+            </button>
+          </div>
         </div>
+
+        {/* Collapsible embed area */}
+        {isExpanded && (
+          <div className="project-attachment-item__embed">
+            <iframe
+              src={resolvedUrl}
+              title={item.label || `Attachment ${index + 1}`}
+              className="project-attachment-item__iframe"
+              loading="lazy"
+              allowFullScreen
+            />
+          </div>
+        )}
       </div>
     );
   }
 
-  // Non-embeddable: show download button
+  // Non-embeddable: show download button (no collapse needed)
   return (
     <div className="project-attachment-item">
       <a
@@ -88,12 +114,25 @@ function AttachmentItem({ item, index }) {
   );
 }
 
-function ProjectAttachments({ reportFiles }) {
+export function ProjectAttachments({ reportFiles }) {
+
   if (!reportFiles || reportFiles.length === 0) return null;
+
+  const embeddableCount = reportFiles.filter(f => ['html', 'htm', 'pdf'].includes(getFileExtension(f.file))).length;
 
   return (
     <div className="project-attachments">
-      <h2 className="project-attachments__title">📎 Lampiran / Attachments</h2>
+      {/* Title bar with global toggle */}
+      <div className="project-attachments__header">
+        <h2 id="attachments" className="project-attachments__title">Attachments</h2>
+        {embeddableCount > 0 && (
+          <div className="project-attachments__header-actions">
+            <span className="project-attachments__count">
+              {embeddableCount} file{embeddableCount !== 1 ? 's' : ''}
+            </span>
+          </div>
+        )}
+      </div>
       <div className="project-attachments__list">
         {reportFiles.map((item, index) => (
           <AttachmentItem key={index} item={item} index={index} />
@@ -102,6 +141,7 @@ function ProjectAttachments({ reportFiles }) {
     </div>
   );
 }
+
 
 export default function ContentWrapper(props) {
   const { metadata, frontMatter } = useDoc();

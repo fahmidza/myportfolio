@@ -744,32 +744,156 @@ body {
   border-top: 2px solid var(--color-border);
 }
 
+/* Header row: title + file count */
+.project-attachments__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
 .project-attachments__title {
   font-size: 1.5rem;
   font-weight: 700;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0;
   color: var(--ifm-heading-color);
+}
+
+.project-attachments__header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.project-attachments__count {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  background: var(--color-surface-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  padding: 0.2rem 0.75rem;
+  letter-spacing: 0.03em;
 }
 
 .project-attachments__list {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
+}
+
+/* Each attachment item wrapper */
+.project-attachment-item {
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+  transition: box-shadow 0.2s ease;
+}
+
+.project-attachment-item:hover {
+  box-shadow: var(--card-shadow-hover);
+}
+
+/* Item header bar: label + action buttons */
+.project-attachment-item__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
 }
 
 .project-attachment-item__label {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 600;
-  margin-bottom: 0.75rem;
+  margin: 0;
   color: var(--ifm-heading-color);
+  flex: 1;
 }
 
+.project-attachment-item__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+/* Shared button base */
+.project-attachment-item__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 1rem;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  font-family: var(--ifm-font-family-base);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.18s ease;
+  white-space: nowrap;
+  line-height: 1.4;
+}
+
+/* Primary button: Expand / Collapse */
+.project-attachment-item__btn--primary {
+  background: var(--ifm-color-primary);
+  color: #ffffff;
+  border: 1.5px solid var(--ifm-color-primary);
+}
+
+.project-attachment-item__btn--primary:hover {
+  background: var(--ifm-color-primary-dark);
+  border-color: var(--ifm-color-primary-dark);
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3);
+}
+
+.project-attachment-item__btn--primary:active {
+  transform: translateY(0);
+}
+
+/* Outline button: Open in New Tab */
+.project-attachment-item__btn--outline {
+  background: transparent;
+  color: var(--ifm-color-primary);
+  border: 1.5px solid var(--ifm-color-primary);
+}
+
+.project-attachment-item__btn--outline:hover {
+  background: var(--ifm-color-primary);
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(14, 165, 233, 0.25);
+  text-decoration: none;
+}
+
+.project-attachment-item__btn--outline:active {
+  transform: translateY(0);
+}
+
+/* Dark mode button tweaks */
+[data-theme='dark'] .project-attachment-item__btn--primary {
+  box-shadow: none;
+}
+
+[data-theme='dark'] .project-attachment-item__btn--primary:hover {
+  box-shadow: 0 4px 12px rgba(56, 189, 248, 0.3);
+}
+
+[data-theme='dark'] .project-attachment-item__btn--outline:hover {
+  box-shadow: 0 4px 12px rgba(56, 189, 248, 0.25);
+}
+
+/* Embed section (shown when expanded) */
 .project-attachment-item__embed {
-  border-radius: 12px;
-  overflow: hidden;
-  border: 1px solid var(--color-border);
-  box-shadow: var(--card-shadow);
-  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
 }
 
 .project-attachment-item__iframe {
@@ -779,24 +903,19 @@ body {
   display: block;
 }
 
+/* Non-embeddable download card (unchanged style) */
 .project-attachment-item__download {
   display: flex;
   align-items: center;
   gap: 1rem;
-  padding: 1rem 1.5rem;
-  border-radius: 12px;
-  border: 1px solid var(--color-border);
-  background: var(--color-surface);
-  box-shadow: var(--card-shadow);
+  padding: 1rem 1.25rem;
   text-decoration: none;
   color: var(--ifm-font-color-base);
   transition: all 0.2s ease;
 }
 
 .project-attachment-item__download:hover {
-  box-shadow: var(--card-shadow-hover);
-  border-color: var(--ifm-color-primary);
-  transform: translateY(-2px);
+  background: var(--color-surface-elevated);
   text-decoration: none;
   color: var(--ifm-font-color-base);
 }
@@ -827,7 +946,18 @@ body {
   .project-attachment-item__iframe {
     height: 500px;
   }
+
+  .project-attachment-item__header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .project-attachment-item__actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
 }
+
 
 /* Remove default padding from the menu to fix the top gap */
 .theme-doc-sidebar-menu {

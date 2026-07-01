@@ -81,71 +81,25 @@ export default function ProjectFilter() {
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
-        
-        <div className={styles.dropdownContainer}>
-          <button 
-            className={styles.dropdownToggle} 
-            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-          >
-            <span>🏷️ {activeTags.length > 0 ? `Selected Tags (${activeTags.length})` : 'Select Tags...'}</span>
-            <span>{isDropdownOpen ? '▴' : '▾'}</span>
-          </button>
-          
-          {isDropdownOpen && (
-            <div className={styles.dropdownMenu}>
-              <div className={styles.dropdownSearch}>
-                <input
-                  type="text"
-                  placeholder="Search tags..."
-                  className={styles.dropdownSearchInput}
-                  value={tagSearchQuery}
-                  onChange={(e) => setTagSearchQuery(e.target.value)}
-                  onClick={(e) => e.stopPropagation()}
-                />
-              </div>
-              <label className={styles.dropdownItem}>
-                <input 
-                  type="checkbox" 
-                  checked={activeTags.length === 0}
-                  onChange={() => setActiveTags([])}
-                />
-                All Tags
-              </label>
-              {displayedTags.length > 0 ? displayedTags.map((tag) => (
-                <label key={tag} className={styles.dropdownItem}>
-                  <input 
-                    type="checkbox" 
-                    checked={activeTags.includes(tag)}
-                    onChange={() => toggleTag(tag)}
-                  />
-                  {tag}
-                </label>
-              )) : (
-                <div style={{ padding: '0.5rem 1rem', fontSize: '0.9rem', color: 'var(--ifm-color-emphasis-500)' }}>
-                  No tags found
-                </div>
-              )}
-            </div>
-          )}
-        </div>
       </div>
 
-      {activeTags.length > 0 && (
-        <div className={styles.selectedTags}>
-          {activeTags.map(tag => (
-            <span key={tag} className={styles.selectedTag}>
-              {tag} 
-              <button onClick={() => toggleTag(tag)} className={styles.removeTagBtn}>×</button>
-            </span>
-          ))}
+      <div className={styles.tagFiltersRow}>
+        <button 
+          className={activeTags.length === 0 ? `${styles.tagPill} ${styles.tagPillActive}` : styles.tagPill}
+          onClick={() => setActiveTags([])}
+        >
+          All Tags
+        </button>
+        {ALL_TAGS.filter(t => t !== 'All').map((tag) => (
           <button 
-            onClick={() => setActiveTags([])} 
-            className="button button--link button--sm"
+            key={tag}
+            className={activeTags.includes(tag) ? `${styles.tagPill} ${styles.tagPillActive}` : styles.tagPill}
+            onClick={() => toggleTag(tag)}
           >
-            Clear All
+            {tag}
           </button>
-        </div>
-      )}
+        ))}
+      </div>
 
       {filteredProjects.length > 0 ? (
         <div className={styles.projectGrid}>

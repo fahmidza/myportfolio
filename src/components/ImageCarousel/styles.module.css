@@ -58,3 +58,13 @@
   background-color: #fff;
   transform: scale(1.2);
 }
+
+.carouselCounter {
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0 4px;
+  user-select: none;
+  letter-spacing: 0.5px;
+}
