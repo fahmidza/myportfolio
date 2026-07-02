@@ -39,7 +39,7 @@ This analysis was designed to answer nine core business questions relevant to th
 
 ## 3. Data Wrangling Process
 
-![](/img/pasted-image-1782971176890.png "Data Wrangling Process")
+![](/img/pasted-image-1782976677392.png "Data Wrangling Process")
 
 This stage covers three main steps: _gathering_, _assessing_, and _cleaning_ the data before moving into exploration.
 
@@ -59,17 +59,17 @@ Data exploration revealed several important patterns that form the basis of the 
 | Ordering Time Patterns | Ordering activity shows rising and falling trends throughout the day, with specific peak hours |
 | Delivery Timeliness | Most orders were delivered on or before the estimated delivery date. However, approximately 7.6% of orders experienced delivery delays, highlighting an opportunity for the company to improve its delivery efficiency. |
 
-![](/img/pasted-image-1782971476292.png "Product Prices Distribution")
+![](/img/pasted-image-1782976694496.png "Product Prices Distribution")
 
-![](/img/pasted-image-1782971497048.png "Transaction Frequency by Payment Method")
+![](/img/pasted-image-1782976701021.png "Transaction Frequency by Payment Method")
 
-![](/img/pasted-image-1782971810945.png "Heatmap Correlation")
+![](/img/pasted-image-1782976708337.png "Heatmap Correlation")
 
-![](/img/pasted-image-1782971762274.png "Top 10 Product Category")
+![](/img/pasted-image-1782976718284.png "Top 10 Product Category")
 
-![Order Trend by Hour](/img/pasted-image-1782971733267.png)
+![Order Trend by Hour](/img/pasted-image-1782976725061.png)
 
-![](/img/pasted-image-1782971706474.png "Proportion of Late Deliveries")
+![](/img/pasted-image-1782976733698.png "Proportion of Late Deliveries")
 
 ## 5. Customer Segmentation with RFM
 
