@@ -82,6 +82,9 @@ module.exports = function (context, options) {
         let match;
         while ((match = imgRegex.exec(content)) !== null) {
           let imgPath = match[1] || match[2];
+          if (imgPath) {
+            imgPath = imgPath.split(/\s+/)[0].replace(/^["']|["']$/g, '');
+          }
           if (imgPath.startsWith('/img/')) {
             imgPath = `/portfolio${imgPath}`;
           }
