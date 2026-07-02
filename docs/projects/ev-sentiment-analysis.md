@@ -13,6 +13,8 @@ sidebar_position: 3
 
 ## Background
 
+![](/img/20260702-190437.png)
+
 Electric vehicle policy in Indonesia has received mixed public reactions, ranging from support for the SPKLU ecosystem to criticism regarding subsidies and their impact on the conventional automotive industry. This project aims to explore text data to understand the overall public sentiment, clean the data to improve analysis accuracy, and evaluate various classification models to conclude how the public perceives the policy.
 
 ## Dataset
